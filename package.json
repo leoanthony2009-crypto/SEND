@@ -1,0 +1,9 @@
+{
+  "name": "bloom-learning-lab-05",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0",
+    "openai": "^5.0.0"
+  }
+}

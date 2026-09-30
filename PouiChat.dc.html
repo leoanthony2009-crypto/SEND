@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#F2F4F8;color:#1F3A5F;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.55}
+button,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:default}
+:focus{outline:none}:focus-visible{outline:2px solid #1F7E7C;outline-offset:2px}
+@media print{[data-noprint]{display:none!important}}
+</style>
+</helmet>
+<div data-noprint="1" style="font-family:'IBM Plex Sans',system-ui,sans-serif;color:#1F3A5F;line-height:1.55">
+<sc-if value="{{ closed }}" hint-placeholder-val="{{ true }}">
+  <button type="button" onClick="{{ openChat }}" aria-label="Ask POUI — open pastoral and classroom support" aria-haspopup="dialog" style="position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:15;min-height:52px;padding:0 18px 0 12px;border-radius:999px;border:0;background:#1F3A5F;color:#fff;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;box-shadow:0 8px 24px rgba(31,58,95,.32)" style-hover="background:#1F7E7C">
+    <span style="width:32px;height:32px;border-radius:50%;background:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></span>Ask POUI</button>
+</sc-if>
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="{{ narrowAttr }}" aria-label="Ask POUI — pastoral and classroom support" onKeyDown="{{ panelKey }}" style="{{ panelStyle }}">
+  <!-- Header -->
+  <div style="background:#1F3A5F;color:#fff;padding:12px 10px 12px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0">
+    <span style="width:40px;height:40px;border-radius:50%;background:#1F7E7C;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></span>
+    <div style="display:flex;flex-direction:column;gap:1px;flex:1;min-width:0">
+      <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;line-height:1.2">Ask POUI</h2>
+      <span style="font-size:13px;color:#D9E1EC">Pastoral and classroom support</span>
+    </div>
+    <button type="button" onClick="{{ askReset }}" aria-label="New conversation" title="New conversation" style="width:44px;height:44px;border-radius:10px;border:0;background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0" style-hover="background:rgba(255,255,255,.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M3 21v-5h5"></path></svg></button>
+    <button type="button" onClick="{{ closeChat }}" aria-label="Close Ask POUI" title="Close" style="width:44px;height:44px;border-radius:10px;border:0;background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0" style-hover="background:rgba(255,255,255,.12)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+  </div>
+  <!-- Context chips -->
+  <sc-if value="{{ hasRole }}">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;padding:9px 16px;background:#E3F1F0;border-bottom:1px solid #D9E1EC;flex-shrink:0">
+      <span style="font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:#1F7E7C;color:#fff;white-space:nowrap">{{ roleLabel }}</span>
+      <sc-if value="{{ hasModule }}"><span style="font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid #1F7E7C;color:#176866;white-space:nowrap">{{ moduleLabel }}</span></sc-if>
+      <sc-if value="{{ hasWeek }}"><span style="font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid #1F7E7C;color:#176866;white-space:nowrap">Week {{ weekLabel }}</span></sc-if>
+    </div>
+  </sc-if>
+  <!-- New-conversation confirmation -->
+  <sc-if value="{{ confirming }}">
+    <div role="alertdialog" aria-label="Start a new POUI conversation?" style="padding:12px 16px;background:#fff;border-bottom:1px solid #D9E1EC;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;flex-shrink:0">
+      <span style="font-size:14.5px;font-weight:600;flex:1;min-width:160px">Start a new POUI conversation?</span>
+      <div style="display:flex;gap:8px">
+        <button type="button" onClick="{{ doReset }}" style="min-height:40px;padding:8px 16px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-size:14px;font-weight:600">Start new</button>
+        <button type="button" onClick="{{ keepChat }}" style="min-height:40px;padding:8px 16px;border-radius:8px;border:1px solid #B8C3D4;background:transparent;color:#1F3A5F;font-size:14px;font-weight:600">Keep current chat</button>
+      </div>
+    </div>
+  </sc-if>
+  <!-- Conversation -->
+  <div ref="{{ listRef }}" style="flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:18px 16px;display:flex;flex-direction:column;gap:12px;background:#F2F4F8">
+    <!-- Role selector -->
+    <sc-if value="{{ noRole }}">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:12px 12px 12px 4px;padding:14px 16px;font-size:15px;max-width:92%;text-wrap:pretty">Hello. I’m POUI — here to help you move from overwhelm to clarity and one small practical step.</div>
+      <div role="group" aria-labelledby="poui-role-q" style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <div id="poui-role-q" style="font-size:14px;font-weight:600;color:#1F3A5F;padding:0 2px">What is your role today?</div>
+        <sc-for list="{{ roles }}" as="ro" hint-placeholder-count="4">
+          <button type="button" onClick="{{ ro.pick }}" style="min-height:52px;padding:12px 16px;border-radius:10px;border:1px solid #B8C3D4;background:#fff;color:#1F3A5F;font-size:16px;font-weight:600;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px" style-hover="border-color:#1F7E7C;background:#E3F1F0">{{ ro.label }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F7E7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+        </sc-for>
+        <button type="button" onClick="{{ pickOther }}" style="min-height:44px;padding:8px 12px;border-radius:8px;border:0;background:transparent;color:#4A5B75;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px;align-self:flex-start" style-hover="color:#1F7E7C">Other / support staff</button>
+      </div>
+    </sc-if>
+    <!-- Messages -->
+    <sc-if value="{{ hasRole }}">
+      <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="0">
+        <sc-if value="{{ m.isPoui }}"><div style="background:#fff;border:1px solid #D9E1EC;border-radius:12px 12px 12px 4px;padding:12px 16px;font-size:15px;line-height:1.5;max-width:92%;align-self:flex-start;display:flex;flex-direction:column;gap:8px;overflow-wrap:anywhere">{{ m.body }}</div></sc-if>
+        <sc-if value="{{ m.isSafe }}"><div style="background:#E3F1F0;border:2px solid #1F7E7C;border-radius:12px 12px 12px 4px;padding:12px 16px;font-size:15px;line-height:1.5;max-width:92%;align-self:flex-start;display:flex;flex-direction:column;gap:8px;overflow-wrap:anywhere">
+          <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#176866"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>Immediate safety comes first</div>{{ m.body }}</div></sc-if>
+        <sc-if value="{{ m.isUser }}"><div style="background:#1F3A5F;color:#fff;border-radius:12px 12px 4px 12px;padding:11px 15px;font-size:15px;line-height:1.5;max-width:88%;align-self:flex-end;white-space:pre-wrap;overflow-wrap:anywhere">{{ m.text }}</div></sc-if>
+      </sc-for>
+      <!-- Suggested prompts -->
+      <sc-if value="{{ showSuggestions }}">
+        <div role="group" aria-label="Suggested starting points" style="display:flex;flex-direction:column;gap:6px;margin-top:2px">
+          <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="3">
+            <button type="button" onClick="{{ sg.send }}" style="min-height:44px;padding:10px 14px;border-radius:10px;border:1px solid #B8C3D4;background:#fff;color:#1F3A5F;font-size:14.5px;text-align:left;line-height:1.35;display:flex;align-items:center;gap:8px" style-hover="border-color:#1F7E7C;background:#E3F1F0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F7E7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>{{ sg.text }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ busy }}"><div style="background:#fff;border:1px solid #D9E1EC;border-radius:12px 12px 12px 4px;padding:11px 16px;font-size:14px;color:#4A5B75;align-self:flex-start;display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#1F7E7C"></span>POUI is thinking…</div></sc-if>
+      <sc-if value="{{ hasErr }}"><div style="background:#fff;border:1px solid #B0493A;border-radius:10px;padding:11px 14px;font-size:14px;color:#8a2f22;align-self:stretch;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between"><span style="display:flex;gap:8px;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>{{ err }}</span><button type="button" onClick="{{ retry }}" style="min-height:36px;padding:6px 14px;border-radius:999px;border:1px solid #8a2f22;background:transparent;color:#8a2f22;font-size:13px;font-weight:600">Try again</button></div></sc-if>
+    </sc-if>
+    <div role="status" aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">{{ srStatus }}</div>
+  </div>
+  <!-- Composer -->
+  <div style="padding:10px 16px max(12px,env(safe-area-inset-bottom));border-top:1px solid #D9E1EC;background:#fff;display:flex;flex-direction:column;gap:8px;flex-shrink:0;position:relative">
+    <p style="margin:0;font-size:12.5px;color:#4A5B75;line-height:1.4;text-wrap:pretty">{{ privacyNote }}</p>
+    <div style="display:flex;gap:8px;align-items:flex-end">
+      <label for="poui-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Tell POUI what’s happening</label>
+      <textarea id="poui-input" ref="{{ inputRef }}" rows="1" value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ inputKey }}" disabled="{{ inputDisabled }}" maxLength="{{ maxLen }}" placeholder="Tell POUI what’s happening…" aria-describedby="poui-privacy" style="flex:1;min-height:46px;max-height:140px;padding:11px 14px;border-radius:10px;border:1px solid #B8C3D4;background:#fff;color:#1F3A5F;font-size:16px;line-height:1.45;resize:none;font-family:inherit"></textarea>
+      <button type="button" onClick="{{ send }}" disabled="{{ sendDisabled }}" aria-label="Send message" style="{{ sendStyle }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg></button>
+    </div>
+    <sc-if value="{{ showCount }}"><span style="font-size:12px;color:#4A5B75;align-self:flex-end">{{ countLabel }}</span></sc-if>
+    <p id="poui-privacy" style="margin:0;font-size:11.5px;color:#4A5B75;line-height:1.4;text-wrap:pretty">{{ scopeNote }}</p>
+  </div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;720px&quot;},&quot;courseModule&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;string | null&quot;,&quot;section&quot;:&quot;Course context&quot;},&quot;courseWeek&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:null,&quot;options&quot;:[null,1,2,3,4],&quot;tsType&quot;:&quot;1 | 2 | 3 | 4 | null&quot;,&quot;section&quot;:&quot;Course context&quot;}}">
+// ===== POUI configuration — edit these to change behaviour without touching the UI =====
+const POUI_ENDPOINT = '/.netlify/functions/poui-chat';
+const POUI_STORAGE_KEY = 'poui-chat-v1';       // sessionStorage: role, responseId, messages only
+const POUI_MAX_MESSAGE = 4000;                 // must match MAX_MESSAGE in netlify/functions/poui-chat.mjs
+const POUI_TIMEOUT_MS = 45000;
+const POUI_ROLES = [
+  { id: 'teacher', pick: 'I’m a teacher', label: 'Teacher' },
+  { id: 'principal', pick: 'I’m a principal', label: 'Principal' },
+  { id: 'pastoral_champion', pick: 'I’m a pastoral champion', label: 'Pastoral champion' },
+  { id: 'parent_carer', pick: 'I’m a parent/carer', label: 'Parent/carer' }
+];
+const POUI_OTHER_ROLE = { id: 'support_staff', label: 'Support staff' };
+const POUI_WELCOME = {
+  teacher: 'Bring me one pupil or classroom concern. We’ll work out what may be happening and choose one realistic next step.',
+  principal: 'Bring me one pupil, staff or whole-school concern. We’ll look for the pattern, identify a manageable next step and decide what needs monitoring or escalation.',
+  pastoral_champion: 'Bring me one concern you’re noticing. We’ll look at what the behaviour may be communicating, what to observe and what to pass on.',
+  parent_carer: 'Tell me what you’re noticing at home or school. We’ll think through what may help and how you could raise it with the school.',
+  support_staff: 'Bring me one concern you’re noticing. We’ll look at what may be happening, what to observe and one small next step.'
+};
+const POUI_SUGGESTIONS = {
+  teacher: ['A pupil keeps refusing written work.', 'I have constant low-level disruption.', 'I’m worried a pupil may need SEND support.'],
+  principal: ['A teacher is struggling with repeated behaviour incidents.', 'How should we organise an SBIT discussion?', 'Staff are becoming overwhelmed by one pupil.'],
+  pastoral_champion: ['What should I track before referring this concern?', 'Help me prepare a pupil check-in.', 'A pupil is having repeated emotional outbursts.'],
+  parent_carer: ['My child is refusing school.', 'My child becomes overwhelmed with homework.', 'How do I raise a SEND concern with school?'],
+  support_staff: ['What should I observe and note down first?', 'Help me prepare a short pupil check-in.', 'A pupil is having repeated emotional outbursts.']
+};
+const POUI_PRIVACY_NOTE = 'Please avoid entering pupils’ full names or unnecessary identifying information. Initials or pseudonyms are usually enough.';
+const POUI_SCOPE_NOTE = 'POUI provides educational and pastoral support. It does not replace safeguarding procedures, professional assessment or emergency services.';
+const POUI_ERR_GENERIC = 'POUI couldn’t respond just now. Please try again.';
+const POUI_ERR_TIMEOUT = 'POUI took too long to answer. Please try again.';
+const POUI_SAFE_RE = /^\s*(?:#{1,4}\s*|\*\*)?\s*immediate safety comes first/i;
+// ===== end configuration =====
+
+const ROLE_LABEL = Object.fromEntries([...POUI_ROLES, POUI_OTHER_ROLE].map(r => [r.id, r.label]));
+const INIT = { open: false, role: null, msgs: [], input: '', busy: false, err: '', respId: null, lastSent: '', confirming: false, narrow: false, srStatus: '' };
+
+// PouiMessage: safe Markdown-lite → React elements (headings, bullets, numbered lists, **bold**). Never injects HTML.
+function inline(t) { return t.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((p, i) => /^\*\*[^*]+\*\*$/.test(p) ? React.createElement('strong', { key: i }, p.slice(2, -2)) : p); }
+function renderMessage(text) {
+  const lines = String(text || '').replace(/\r/g, '').split('\n'); const out = []; let para = [], list = null, listType = null;
+  const flushP = () => { if (para.length) { out.push(React.createElement('p', { key: out.length, style: { margin: 0 } }, inline(para.join(' ')))); para = []; } };
+  const flushL = () => { if (list) { out.push(React.createElement(listType, { key: out.length, style: { margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 4 } }, list.map((li, i) => React.createElement('li', { key: i }, inline(li))))); list = null; listType = null; } };
+  lines.forEach(raw => { const l = raw.trim(); let m;
+    if (!l) { flushP(); flushL(); return; }
+    if ((m = l.match(/^#{1,4}\s+(.+)$/)) || (m = l.match(/^\*\*([^*]{2,60})\*\*:?$/)) || (m = l.match(/^(\d\.\s+[A-Z][^.!?]{1,50}|[A-Z][A-Za-z ]{2,40}):$/))) { flushP(); flushL(); out.push(React.createElement('h3', { key: out.length, style: { margin: '4px 0 0', fontSize: 14, fontWeight: 700, letterSpacing: '.02em', color: '#1F7E7C' } }, m[1].replace(/\*\*/g, ''))); return; }
+    if ((m = l.match(/^[-*•]\s+(.+)$/))) { flushP(); if (listType !== 'ul') { flushL(); list = []; listType = 'ul'; } list.push(m[1]); return; }
+    if ((m = l.match(/^\d+[.)]\s+(.+)$/))) { flushP(); if (listType !== 'ol') { flushL(); list = []; listType = 'ol'; } list.push(m[1]); return; }
+    flushL(); para.push(l);
+  });
+  flushP(); flushL(); return out;
+}
+function stripSafeHeading(text) { const lines = String(text || '').split('\n'); if (POUI_SAFE_RE.test(lines[0] || '')) lines.shift(); return lines.join('\n').trim(); }
+
+class Component extends DCLogic {
+  state = { ...INIT };
+  listRef = React.createRef();
+  inputRef = React.createRef();
+  // Course context: props from the host page win; otherwise any element declaring data-poui-week / data-poui-module.
+  context() {
+    const p = this.props; const el = document.querySelector('[data-poui-week],[data-poui-module]');
+    const w = p.courseWeek != null ? p.courseWeek : el && el.getAttribute('data-poui-week');
+    const week = /^[1-4]$/.test(String(w)) ? parseInt(w, 10) : null;
+    const modRaw = p.courseModule != null ? p.courseModule : el && el.getAttribute('data-poui-module');
+    const module = modRaw && String(modRaw).trim() ? String(modRaw).trim() : null;
+    return { courseWeek: week, module };
+  }
+  focusSoon() { setTimeout(() => { const el = this.inputRef.current && !this.inputRef.current.disabled ? this.inputRef.current : document.querySelector('[role="dialog"] button'); if (el) el.focus(); }, 60); }
+  openChat() { this.setState({ open: true, err: '' }); this.focusSoon(); }
+  closeChat() { this.setState({ open: false, confirming: false }); setTimeout(() => { const b = document.querySelector('[aria-haspopup="dialog"]'); if (b) b.focus(); }, 60); }
+  askReset() { if (this.state.msgs.some(m => m.who === 'u')) this.setState({ confirming: true }); else this.resetConversation(); }
+  // Clears role, response ID and messages. Never touches course progress.
+  resetConversation() { try { sessionStorage.removeItem(POUI_STORAGE_KEY); } catch (e) {} this.setState({ ...INIT, open: true, narrow: this.state.narrow, srStatus: 'New conversation started.' }); this.focusSoon(); }
+  pickRole(role) { this.setState({ role, msgs: [{ who: 'p', text: POUI_WELCOME[role] || POUI_WELCOME.support_staff }], err: '', srStatus: 'Role set: ' + ROLE_LABEL[role] }); this.focusSoon(); }
+  async send(textOverride) {
+    const s = this.state; const text = (typeof textOverride === 'string' ? textOverride : s.input).trim();
+    if (s.busy || !text || !s.role || text.length > POUI_MAX_MESSAGE) return;
+    const isRetry = typeof textOverride === 'string' && textOverride === s.lastSent && s.err;
+    this.setState(q => ({ busy: true, err: '', input: '', lastSent: text, srStatus: 'Message sent. POUI is thinking.', msgs: isRetry ? q.msgs : [...q.msgs, { who: 'u', text }] }));
+    const ctx = this.context();
+    try {
+      const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), POUI_TIMEOUT_MS);
+      const r = await fetch(POUI_ENDPOINT, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ message: text, role: s.role, courseWeek: ctx.courseWeek, module: ctx.module, previousResponseId: s.respId || null }), signal: ctl.signal });
+      clearTimeout(t);
+      let j = null; try { j = await r.json(); } catch (e) {}
+      if (!r.ok || !j || typeof j.reply !== 'string') throw new Error('bad response');
+      const safe = j.safeguarding === true || POUI_SAFE_RE.test(j.reply);
+      this.setState(q => ({ busy: false, msgs: [...q.msgs, { who: 'p', text: j.reply, safe }], respId: j.responseId || q.respId, srStatus: 'POUI replied.' }));
+    } catch (e) {
+      this.setState({ busy: false, err: e && e.name === 'AbortError' ? POUI_ERR_TIMEOUT : POUI_ERR_GENERIC, srStatus: 'POUI could not respond.' });
+    }
+    this.focusSoon();
+  }
+  componentDidMount() {
+    try { const p = JSON.parse(sessionStorage.getItem(POUI_STORAGE_KEY)); if (p && typeof p === 'object' && p.role) this.setState({ role: p.role, respId: p.respId || null, msgs: Array.isArray(p.msgs) ? p.msgs : [] }); } catch (e) {}
+    this.onResize = () => { const n = window.innerWidth < 880; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    this.onResize(); window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  componentDidUpdate() {
+    const s = this.state; const ps = this._prev || INIT; this._prev = s;
+    if (s.role !== ps.role || s.respId !== ps.respId || s.msgs !== ps.msgs) { try { if (s.role) sessionStorage.setItem(POUI_STORAGE_KEY, JSON.stringify({ role: s.role, respId: s.respId, msgs: s.msgs })); else sessionStorage.removeItem(POUI_STORAGE_KEY); } catch (e) {} }
+    if (s.open && (s.msgs !== ps.msgs || s.busy !== ps.busy || s.err !== ps.err || !ps.open)) { const el = this.listRef.current; if (el) el.scrollTop = el.scrollHeight; }
+  }
+  renderVals() {
+    const s = this.state; const ctx = this.context();
+    const len = s.input.length; const canSend = !!s.role && !s.busy && !!s.input.trim() && len <= POUI_MAX_MESSAGE;
+    const hasUserMsg = s.msgs.some(m => m.who === 'u');
+    return {
+      open: s.open, closed: !s.open, narrowAttr: s.narrow ? 'true' : undefined,
+      panelStyle: s.narrow ? 'position:fixed;inset:0;z-index:20;background:#fff;display:flex;flex-direction:column' : 'position:fixed;right:20px;bottom:20px;width:min(400px,calc(100vw - 40px));height:min(680px,calc(100vh - 40px));z-index:20;background:#fff;border-radius:14px;box-shadow:0 24px 60px rgba(31,58,95,.3);border:1px solid #D9E1EC;display:flex;flex-direction:column;overflow:hidden',
+      hasRole: !!s.role, noRole: !s.role, roleLabel: ROLE_LABEL[s.role] || '',
+      hasModule: !!ctx.module, moduleLabel: ctx.module || '', hasWeek: ctx.courseWeek !== null, weekLabel: ctx.courseWeek,
+      roles: POUI_ROLES.map(r => ({ label: r.pick, pick: () => this.pickRole(r.id) })), pickOther: () => this.pickRole(POUI_OTHER_ROLE.id),
+      msgs: s.msgs.map(m => ({ isPoui: m.who === 'p' && !m.safe, isSafe: m.who === 'p' && !!m.safe, isUser: m.who === 'u', text: m.text, body: m.who === 'p' ? renderMessage(m.safe ? stripSafeHeading(m.text) : m.text) : null })),
+      showSuggestions: !!s.role && !hasUserMsg && !s.busy, suggestions: (POUI_SUGGESTIONS[s.role] || []).map(t => ({ text: t, send: () => this.send(t) })),
+      busy: s.busy, hasErr: !!s.err, err: s.err, retry: () => this.send(s.lastSent), srStatus: s.srStatus,
+      confirming: s.confirming, askReset: () => this.askReset(), doReset: () => this.resetConversation(), keepChat: () => { this.setState({ confirming: false }); this.focusSoon(); },
+      input: s.input, onInput: e => this.setState({ input: e.target.value }), inputDisabled: !s.role || s.busy, maxLen: POUI_MAX_MESSAGE,
+      inputKey: e => { if (e.key === 'Enter' && !e.shiftKey && !s.narrow) { e.preventDefault(); this.send(); } },
+      showCount: len > POUI_MAX_MESSAGE - 500, countLabel: len + ' / ' + POUI_MAX_MESSAGE,
+      send: () => this.send(), sendDisabled: !canSend,
+      sendStyle: 'width:46px;height:46px;flex-shrink:0;border-radius:10px;border:0;display:inline-flex;align-items:center;justify-content:center;' + (canSend ? 'background:#1F3A5F;color:#fff' : 'background:#D9E1EC;color:#9AA7BA'),
+      openChat: () => this.openChat(), closeChat: () => this.closeChat(), panelKey: e => { if (e.key === 'Escape') this.closeChat(); },
+      listRef: this.listRef, inputRef: this.inputRef, privacyNote: POUI_PRIVACY_NOTE, scopeNote: POUI_SCOPE_NOTE
+    };
+  }
+}
+</script>
+</body>
+</html>

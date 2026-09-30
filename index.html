@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#F2F4F8;color:#1F3A5F;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+a{color:#1F3A5F;text-underline-offset:3px}a:hover{color:#1F7E7C}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:default}
+:focus{outline:none}:focus-visible{outline:2px solid #1F7E7C;outline-offset:2px}
+textarea,input{max-width:100%;min-width:0}
+svg{flex-shrink:0}
+:root{color-scheme:light}
+html{scroll-padding-top:80px}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+:focus-visible{scroll-margin-top:80px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{[data-noprint],header,nav{display:none!important}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<!-- LANDING -->
+<sc-if value="{{ isLanding }}" hint-placeholder-val="{{ true }}">
+<div style="background:#1F3A5F;color:#fff;padding:clamp(32px,6vw,60px) clamp(16px,3vw,24px) clamp(36px,6vw,64px)">
+  <div style="max-width:1060px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:36px 56px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div style="font-size:14px;font-variant:small-caps;letter-spacing:.16em;color:#7FCBC6;font-weight:600">Bloom Learning Labs · Lab 05 · Adaptive Teaching for SEND</div>
+    <h1 style="font-size:clamp(32px,4vw,52px);line-height:1.1;font-weight:700;text-wrap:pretty">Notice the Barrier.<br>Adapt the Teaching.<br>Keep the Ambition.</h1>
+    <p style="font-size:18px;color:#D9E1EC;text-wrap:pretty">30 minutes core learning + 10 minutes reflection task · for teachers and teaching assistants working with pupils with SEND in mainstream classrooms</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span style="font-size:14px;padding:5px 12px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap">Five classroom vignettes</span>
+      <span style="font-size:14px;padding:5px 12px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap">Teacher and TA lenses</span>
+      <span style="font-size:14px;padding:5px 12px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap">Printable reflection tool</span>
+      <span style="font-size:14px;padding:4px 12px 4px 6px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap;display:inline-flex;align-items:center;gap:7px"><span style="display:inline-flex;width:22px;height:22px">{{ badgeChipImg }}</span>Certificate + SEND digital badge</span>
+    </div>
+  </div>
+  <div style="position:relative;min-width:0">
+    <div style="position:absolute;inset:14px -14px -14px 14px;border:1px solid rgba(127,203,198,.5);border-radius:10px;pointer-events:none"></div>
+    <div style="position:relative;border-radius:10px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.35);background:#fff;color:#1F3A5F">
+      <div style="padding:18px 22px 12px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid #D9E1EC"><span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1F7E7C;font-weight:600">The EEF ‘Five-a-day’</span><span style="font-size:12px;color:#4A5B75">Daily · flexible · for all pupils</span></div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:12px 22px;border-bottom:1px solid #F2F4F8"><span style="width:44px;height:44px;border-radius:10px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h20"></path><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"></path><path d="m7 21 5-5 5 5"></path></svg></span><span style="display:flex;flex-direction:column"><span style="font-weight:600;font-size:16px">Explicit instruction</span><span style="font-size:13px;color:#4A5B75">Explain · model · check · guide · release</span></span><span style="font-size:12px;font-weight:700;color:#1F7E7C">1</span></div>
+        <div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:12px 22px;border-bottom:1px solid #F2F4F8"><span style="width:44px;height:44px;border-radius:10px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg></span><span style="display:flex;flex-direction:column"><span style="font-weight:600;font-size:16px">Cognitive &amp; metacognitive strategies</span><span style="font-size:13px;color:#4A5B75">Manage load · plan · monitor · evaluate</span></span><span style="font-size:12px;font-weight:700;color:#1F7E7C">2</span></div>
+        <div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:12px 22px;border-bottom:1px solid #F2F4F8"><span style="width:44px;height:44px;border-radius:10px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v18"></path><path d="M17 3v18"></path><path d="M7 7h10"></path><path d="M7 12h10"></path><path d="M7 17h10"></path></svg></span><span style="display:flex;flex-direction:column"><span style="font-weight:600;font-size:16px">Scaffolding</span><span style="font-size:13px;color:#4A5B75">Temporary support that fades over time</span></span><span style="font-size:12px;font-weight:700;color:#1F7E7C">3</span></div>
+        <div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:12px 22px;border-bottom:1px solid #F2F4F8"><span style="width:44px;height:44px;border-radius:10px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span style="display:flex;flex-direction:column"><span style="font-weight:600;font-size:16px">Flexible grouping</span><span style="font-size:13px;color:#4A5B75">Temporary groups by current need, never fixed</span></span><span style="font-size:12px;font-weight:700;color:#1F7E7C">4</span></div>
+        <div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:12px 22px"><span style="width:44px;height:44px;border-radius:10px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg></span><span style="display:flex;flex-direction:column"><span style="font-weight:600;font-size:16px">Using technology</span><span style="font-size:13px;color:#4A5B75">Model, practise and record learning</span></span><span style="font-size:12px;font-weight:700;color:#1F7E7C">5</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:#16304f;border-top:2px solid #1F7E7C;padding:10px;gap:8px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:8px;background:#2F6FB3;color:#fff;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.85">NOTICE</span><span style="font-size:12px;font-weight:700;line-height:1.15">the barrier</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:8px;background:#1F7E7C;color:#fff;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.85">ADAPT</span><span style="font-size:12px;font-weight:700;line-height:1.15">the teaching</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:8px;background:#D9E1EC;color:#1F3A5F;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.75">KEEP</span><span style="font-size:12px;font-weight:700;line-height:1.15">the ambition</span></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<div style="max-width:1060px;width:100%;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(14px,3vw,24px) 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px;align-items:start">
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">In 30 minutes of core learning: learn why high-quality teaching is the first response to SEND, see each of the EEF’s Five-a-day strategies work in a real classroom moment, and understand how teachers and teaching assistants use them together — then reflect honestly on your own practice.</div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 22px;font-size:14.5px;color:#4A5B75;text-wrap:pretty"><strong style="color:#1F3A5F">Every teacher is a teacher of SEND.</strong> The Education Endowment Foundation’s review behind <em>Special Educational Needs in Mainstream Schools</em> found that pupils with SEND benefit most from the same high-quality teaching that helps every pupil — used daily, flexibly, and in response to the barrier in front of you rather than the label on a form.</div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">By the end, you can</div>
+      <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:16px">
+        <li>Describe a pupil’s barrier to learning without relying on a diagnostic label</li>
+        <li>Name the Five-a-day and the evidence behind each one</li>
+        <li>Choose the right strategy for a classroom moment and explain why</li>
+        <li>Fade support so pupils grow more independent, not more dependent</li>
+        <li>Work as a teacher–TA pair so adaptation never lowers ambition</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Your route · 30 min core + 10 min task</div>
+      <div style="display:grid;grid-template-columns:64px 1fr;row-gap:6px;column-gap:14px;font-size:16px">
+        <span style="font-weight:600">0–4</span><span>Why adaptive teaching, and noticing the barrier</span>
+        <span style="font-weight:600">4–19</span><span>The Five-a-day — one classroom vignette each</span>
+        <span style="font-weight:600">19–25</span><span>Keeping the ambition · teacher and TA together · the review cycle</span>
+        <span style="font-weight:600">25–30</span><span>Knowledge check · research · commitment</span>
+        <span style="font-weight:600;color:#1F7E7C">+10</span><span>Reflection task: your Five-a-day, honestly rated</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <sc-if value="{{ hasName }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:16px">Welcome back, <strong>{{ name }}</strong>. You have completed {{ completedCount }} of {{ lessonCount }} lessons.</div>
+        <div style="height:6px;border-radius:999px;background:#D9E1EC;overflow:hidden"><div style="{{ progressBarStyle }}"></div></div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <button onClick="{{ resume }}" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:16px" style-hover="background:#16304f">{{ resumeLabel }}</button>
+          <button onClick="{{ resetAll }}" style="min-height:44px;padding:10px 16px;border-radius:8px;border:1px solid #D9E1EC;background:transparent;color:#4A5B75;font-size:14px" style-hover="background:#fff">Start over &amp; clear my notes</button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ noName }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <label for="learner-name" style="font-weight:600;font-size:16px">Your name (for your completion certificate)</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input id="learner-name" type="text" autocomplete="name" placeholder="e.g. Ms R. Okafor" value="{{ nameDraft }}" onChange="{{ onNameDraft }}" onKeyDown="{{ onNameKey }}" style="flex:1;min-width:200px;min-height:44px;padding:10px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;color:#1F3A5F">
+          <button onClick="{{ startCourse }}" disabled="{{ startDisabled }}" style="min-height:44px;padding:10px 22px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:16px" style-hover="background:#16304f">Start the course</button>
+        </div>
+        <p style="font-size:13px;color:#4A5B75">Your name and notes stay on this device only. The course loads once and then works offline.</p>
+      </div>
+    </sc-if>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Built for two roles</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px">
+        <div style="padding:14px 16px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:16px">Teachers</span><span style="font-size:14px;color:#4A5B75">Plan and lead the adaptation for the whole class; decide what fades and when.</span></div>
+        <div style="padding:14px 16px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:16px">Teaching assistants</span><span style="font-size:14px;color:#4A5B75">Deliver the strategies moment to moment; prompt before you model, model before you correct.</span></div>
+      </div>
+      <p style="font-size:13px;color:#4A5B75;text-wrap:pretty">Every reflection is shown through both lenses, side by side. Source: EEF <em>Special Educational Needs in Mainstream Schools</em> (2020) and the EEF Five-a-day reflection tools. Code BPLF-MC-SEND-05 v1.0.</p>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- COURSE SHELL -->
+<sc-if value="{{ inCourse }}" hint-placeholder-val="{{ false }}">
+<header data-noprint="1" style="display:flex;align-items:center;gap:12px;padding:10px 16px;background:#fff;border-bottom:1px solid #D9E1EC;position:sticky;top:0;z-index:5;min-width:0">
+  <sc-if value="{{ narrow }}"><button aria-label="Toggle lesson menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}" style="width:44px;height:44px;border-radius:8px;border:1px solid #D9E1EC;background:transparent;color:#1F3A5F;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></sc-if>
+  <button onClick="{{ goLanding }}" style="border:0;background:transparent;padding:0;text-align:left;display:flex;flex-direction:column;gap:2px;color:#1F3A5F;min-width:0;flex:1;cursor:pointer">
+    <span style="font-size:13px;font-variant:small-caps;letter-spacing:.14em;color:#1F7E7C;font-weight:600">Bloom Learning Labs · Lab 05</span>
+    <span style="font-weight:600;font-size:16px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:100%">Adaptive Teaching for SEND</span>
+  </button>
+  <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+    <div style="width:clamp(48px,12vw,120px);height:6px;border-radius:999px;background:#D9E1EC;overflow:hidden" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progressPct }}"><div style="{{ progressBarStyle }}"></div></div>
+    <span style="font-size:13px;color:#4A5B75;white-space:nowrap">{{ progressPct }}%</span>
+  </div>
+</header>
+
+<div style="flex:1;display:flex;position:relative;max-width:1280px;width:100%;margin:0 auto;min-width:0">
+  <sc-if value="{{ showSidebar }}" hint-placeholder-val="{{ true }}">
+  <nav data-noprint="1" aria-label="Course lessons" style="{{ sidebarStyle }}">
+    <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="4">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <div style="display:flex;flex-direction:column;padding:8px 10px 4px"><span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1F7E7C;font-weight:600">Module {{ mod.n }} · {{ mod.mins }}</span><span style="font-size:13px;color:#4A5B75">{{ mod.title }}</span></div>
+        <sc-for list="{{ mod.lessons }}" as="l" hint-placeholder-count="3">
+          <button onClick="{{ l.go }}" aria-current="{{ l.current }}" style="{{ l.style }}" style-hover="background:#F2F4F8">
+            <span style="{{ l.dotStyle }}"><sc-if value="{{ l.done }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span>
+            <span style="flex:1">{{ l.title }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div style="height:1px;margin:6px 0;background:#D9E1EC"></div>
+    <button onClick="{{ goRate }}" style="{{ rateNavStyle }}" style-hover="background:#F2F4F8"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><span>{{ rateNavLabel }}</span></button>
+  </nav>
+  </sc-if>
+  <sc-if value="{{ showScrim }}" hint-placeholder-val="{{ false }}"><div onClick="{{ toggleMenu }}" style="position:fixed;inset:0;background:rgba(31,58,95,.35);z-index:8"></div></sc-if>
+
+  <main id="main-content" data-poui-week="{{ pouiWeek }}" data-poui-module="{{ pouiModule }}" style="flex:1;min-width:0;padding:clamp(18px,3vw,32px) clamp(14px,3vw,24px) 96px;display:flex;flex-direction:column;gap:26px">
+
+  <div style="display:flex;flex-direction:column;gap:10px;max-width:820px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1F7E7C;font-weight:600"><span>{{ curKicker }}</span><span style="color:#4A5B75;letter-spacing:0;text-transform:none;font-weight:400">{{ curMeta }}</span></div>
+    <h1 style="font-size:clamp(26px,3.2vw,36px);line-height:1.15;text-wrap:pretty">{{ curTitle }}</h1>
+    <p style="font-size:17px;text-wrap:pretty">{{ curIntro }}</p>
+    <p data-noprint="1" style="font-size:14px;color:#4A5B75;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:baseline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F7E7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="align-self:center"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg><span style="flex:1;min-width:0">Pause at any point — your progress is saved on this device. To talk a real situation through, use <strong>Ask POUI</strong> (bottom right).</span></p>
+    <sc-if value="{{ hasObjective }}"><p style="font-size:14px;color:#4A5B75;display:flex;gap:8px;align-items:baseline"><span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#1F7E7C;font-weight:600;white-space:nowrap">You'll be able to</span><span>{{ curObjective }}</span></p></sc-if>
+  </div>
+  <sc-if value="{{ showRecap }}">
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-left:3px solid #1F7E7C;border-radius:8px;padding:14px 18px;display:flex;flex-direction:column;gap:4px">
+      <span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#1F7E7C;font-weight:600">Before you go on · Module {{ recapMod }} in one line</span>
+      <p style="font-size:14.5px;text-wrap:pretty">{{ recapText }}</p>
+    </div>
+  </sc-if>
+
+  <!-- 1 WELCOME -->
+  <sc-if value="{{ s_welcome }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The common problem</div>
+        <p style="font-size:16px;text-wrap:pretty">Support for pupils with SEND often means a separate worksheet, a separate table, or a separate adult — and the pupil quietly gets less teaching from the teacher than anyone else in the room.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The adaptive response</div>
+        <p style="font-size:16px;text-wrap:pretty">The EEF’s evidence review found that what helps pupils with SEND most is high-quality teaching for everyone, adapted in the moment. Five approaches are especially well evidenced — the ‘Five-a-day’ — to be used daily and flexibly, as the starting point for all pupils.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start"><span style="width:36px;height:36px;border-radius:8px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:16px">Notice the barrier</span><span style="font-size:14px;color:#4A5B75">What, precisely, is getting in the way of this pupil learning this content?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start"><span style="width:36px;height:36px;border-radius:8px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M2 14h4M10 8h4M18 16h4"></path></svg></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:16px">Adapt the teaching</span><span style="font-size:14px;color:#4A5B75">Which of the Five-a-day removes that barrier — for this pupil and, usually, for others too?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start"><span style="width:36px;height:36px;border-radius:8px;background:#E3F1F0;color:#1F7E7C;display:inline-flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><path d="M4 22v-7"></path></svg></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:16px">Keep the ambition</span><span style="font-size:14px;color:#4A5B75">Same curriculum, same goal, same standard — the route changes, not the destination.</span></div></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-weight:600;font-size:17px">Opening reflection</div>
+      <p style="font-size:14px;color:#4A5B75">Think of one pupil with SEND you teach or support. In one line: what do they find hardest in your lessons — not their diagnosis, the actual moment?</p>
+      <textarea rows="3" value="{{ openingNote }}" onChange="{{ onOpeningNote }}" placeholder="e.g. Kwame stops writing as soon as the task has more than one step." style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;resize:vertical;color:#1F3A5F"></textarea>
+      <span style="font-size:13px;color:#4A5B75">Saved on this device as you type. You will see this again at the capstone.</span>
+    </div>
+  </sc-if>
+
+  <!-- 2 BARRIER -->
+  <sc-if value="{{ s_barrier }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">A label tells you the category</div>
+        <p style="font-size:16px;text-wrap:pretty">“Dyslexia”, “SLCN”, “SEMH” group very different pupils together. Two pupils with the same label can face opposite barriers in the same lesson; one pupil’s barrier can change between Monday and Friday.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">A barrier tells you what to do</div>
+        <p style="font-size:16px;text-wrap:pretty">“Loses the thread after the second instruction” points straight at chunking and checking. “Has the ideas but the spelling stops the writing” points at scaffolds and speech-to-text. The EEF asks teachers to build an understanding of individual needs — the barrier is where that starts.</p>
+      </div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">Four broad areas of need frame most SEND systems — communication and interaction; cognition and learning; social, emotional and mental health; sensory and physical. They are useful for planning provision. In the lesson, teach the barrier you can see.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: label or barrier?</div>
+      <p style="font-size:14px;color:#4A5B75">Which statements would actually help you plan tomorrow’s lesson?</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ labItems }}" as="it" hint-placeholder-count="4">
+          <div style="{{ it.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:16px;text-wrap:pretty">{{ it.text }}</span>
+            <div style="display:flex;gap:6px"><button onClick="{{ it.pickA }}" style="{{ it.a }}">Label</button><button onClick="{{ it.pickB }}" style="{{ it.b }}">Barrier</button></div>
+            <sc-if value="{{ it.picked }}"><span role="status" style="{{ it.fbStyle }}">{{ it.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 3 EXPLICIT -->
+  <sc-if value="{{ s_explicit }}">
+    <div style="max-width:1000px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden">
+      <div style="padding:14px 22px;background:#1F3A5F;color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-weight:600;font-size:16px">Vignette · Science, age 13 · Amara</span><span style="font-size:13px;color:#D9E1EC">Speech, language and communication needs</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:0">
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#2F6FB3;font-weight:700;letter-spacing:.1em">NOTICE</span><p style="font-size:14.5px;text-wrap:pretty">Mr Adeyemi gives the practical instructions in one flowing explanation. Amara nods, then sits still while others start. By the time she asks a friend, the class is on step three. She is marked “off task”.</p></div>
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#1F7E7C;font-weight:700;letter-spacing:.1em">ADAPT</span><p style="font-size:14.5px;text-wrap:pretty">Next lesson he chunks the method into four numbered steps on the board, models step one under the visualiser, and asks everyone to show the next step on mini-whiteboards before anyone touches equipment. Pairs do steps two and three together; step four is independent.</p></div>
+        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#4A5B75;font-weight:700;letter-spacing:.1em">KEEP</span><p style="font-size:14.5px;text-wrap:pretty">Same practical, same equipment, same conclusion expected in the write-up. Amara completes all four steps. So do three pupils who had been copying quietly for weeks.</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">What the evidence says</div>
+        <p style="font-size:16px;text-wrap:pretty">Explicit instruction is teacher-led: clear explanation, modelling and frequent checks for understanding, followed by guided practice and then independent practice. Rosenshine’s <em>Principles of Instruction</em> (2012) synthesises the same pattern from cognitive science and classroom studies: present new material in small steps, ask many questions, provide models, guide practice, and aim for a high success rate before independence.</p>
+        <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">It is not lecturing. The checks are the point — they tell you who to guide next.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Through both lenses</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px">
+          <div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teacher</span><span style="font-size:14px;color:#4A5B75">Use clear, succinct language. Chunk content into small steps. Model the task before expecting independence.</span></div>
+          <div style="padding:12px 14px;border-radius:8px;background:#E3F1F0;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teaching assistant</span><span style="font-size:14px;color:#4A5B75">Re-explain with the same words the teacher used. Dual-code on a mini-whiteboard. Check understanding by asking the pupil to say the next step back.</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: put the sequence in order</div>
+      <p style="font-size:14px;color:#4A5B75">Tap the five moves in the order explicit instruction runs them.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ seqSlots }}" as="sl" hint-placeholder-count="5"><span style="{{ sl.style }}">{{ sl.label }}</span></sc-for></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ seqOpts }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.pick }}" disabled="{{ o.used }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ seqMiss }}"><p role="alert" style="font-size:14px;color:#8a2f22">Not that one — the sequence starts again. Next comes <strong>{{ seqExpected }}</strong>.</p></sc-if>
+      <sc-if value="{{ seqDone }}"><p style="font-size:14px;color:#2f5a37;font-weight:600">All five in order. Notice where the check sits: before guided practice, so you know who needs the guiding.</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 4 METACOG -->
+  <sc-if value="{{ s_metacog }}">
+    <div style="max-width:1000px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden">
+      <div style="padding:14px 22px;background:#1F3A5F;color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-weight:600;font-size:16px">Vignette · Maths, age 10 · Daniel</span><span style="font-size:13px;color:#D9E1EC">Attention and working-memory difficulties</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))">
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#2F6FB3;font-weight:700;letter-spacing:.1em">NOTICE</span><p style="font-size:14.5px;text-wrap:pretty">Long division. Daniel can do each step when asked, but mid-problem he loses where he is, starts again, and gives up after the second restart. The worksheet has twelve problems crammed on one page.</p></div>
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#1F7E7C;font-weight:700;letter-spacing:.1em">ADAPT</span><p style="font-size:14.5px;text-wrap:pretty">Ms Ferreira opens with three retrieval questions on times tables so the facts are ready. She thinks aloud through a worked example — “What do I do first? How will I know I’m right?” — and gives the class a plan–do–check strip. New sheets: three problems per page, generous space.</p></div>
+        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#4A5B75;font-weight:700;letter-spacing:.1em">KEEP</span><p style="font-size:14.5px;text-wrap:pretty">Same problems, same method. Daniel finishes eight of twelve and, for the first time, tells the TA which step he got wrong before she does.</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">What the evidence says</div>
+        <p style="font-size:16px;text-wrap:pretty">Two ideas. <strong>Cognitive load theory</strong> (Sweller, 1988) — working memory is small; new content only reaches long-term memory if we cut unnecessary load: cluttered pages, split attention, too many steps at once. <strong>Metacognition</strong> — the EEF’s guidance <em>Metacognition and Self-regulated Learning</em> reports an average of around seven additional months’ progress when pupils are explicitly taught to plan, monitor and evaluate their own learning.</p>
+        <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Pupils with SEND are often the last to be taught how to learn — and benefit most when they are.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Through both lenses</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px">
+          <div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teacher</span><span style="font-size:14px;color:#4A5B75">Start with recall of prior content. Model the selection of a strategy out loud. Give a checklist pupils can use to monitor themselves.</span></div>
+          <div style="padding:12px 14px;border-radius:8px;background:#E3F1F0;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teaching assistant</span><span style="font-size:14px;color:#4A5B75">Ask metacognitive questions rather than giving the next step: “What did you do last time?” “Which step are you on?” “How will you check?”</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: plan, monitor or evaluate?</div>
+      <p style="font-size:14px;color:#4A5B75">Which phase of self-regulation does each prompt support?</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ pmeItems }}" as="it" hint-placeholder-count="4">
+          <div style="{{ it.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:16px;text-wrap:pretty">{{ it.text }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ it.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+            <sc-if value="{{ it.picked }}"><span role="status" style="{{ it.fbStyle }}">{{ it.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 5 SCAFFOLD -->
+  <sc-if value="{{ s_scaffold }}">
+    <div style="max-width:1000px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden">
+      <div style="padding:14px 22px;background:#1F3A5F;color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-weight:600;font-size:16px">Vignette · Writing, age 9 · Leah</span><span style="font-size:13px;color:#D9E1EC">Dyslexia</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))">
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#2F6FB3;font-weight:700;letter-spacing:.1em">NOTICE</span><p style="font-size:14.5px;text-wrap:pretty">A persuasive letter. Leah talks through brilliant arguments in the paired discussion, then writes two lines in twenty minutes. Every sentence stalls at a spelling. She has a differentiated sheet: “write three sentences”.</p></div>
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#1F7E7C;font-weight:700;letter-spacing:.1em">ADAPT</span><p style="font-size:14.5px;text-wrap:pretty">Mr Bakshi gives the whole class a partially completed letter and a bank of persuasive openers and topic words; anyone can use them. Week two: openers only. Week three: a checklist of features, no frame. Leah keeps the word bank a week longer than most — by choice, not by table.</p></div>
+        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#4A5B75;font-weight:700;letter-spacing:.1em">KEEP</span><p style="font-size:14.5px;text-wrap:pretty">Same genre, same success criteria, same audience. Leah’s week-three letter has four paragraphs and an argument the class votes most convincing.</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">What the evidence says</div>
+        <p style="font-size:16px;text-wrap:pretty">The term comes from Wood, Bruner and Ross (1976), building on Vygotsky’s zone of proximal development: support lets a learner do today what they could not do alone, so that tomorrow they can. The EEF stresses three things — scaffolds may be visual, verbal or written; they should be reduced over the lesson, week or term; and they should be offered in a non-stigmatising way, often to the whole class with opt-in.</p>
+        <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">A scaffold that never comes down is not a scaffold. It is a ceiling.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Through both lenses</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px">
+          <div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teacher</span><span style="font-size:14px;color:#4A5B75">Plan the fade before you plan the frame. Offer scaffolds at whole-class level so pupils opt in without being singled out.</span></div>
+          <div style="padding:12px 14px;border-radius:8px;background:#E3F1F0;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teaching assistant</span><span style="font-size:14px;color:#4A5B75">Give scaffolds to a pair or small group rather than one pupil. Notice when a pupil no longer looks at the frame — and quietly remove it.</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: fading or fixed?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ fadeItems }}" as="it" hint-placeholder-count="4">
+          <div style="{{ it.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:16px;text-wrap:pretty">{{ it.text }}</span>
+            <div style="display:flex;gap:6px"><button onClick="{{ it.pickA }}" style="{{ it.a }}">Fading</button><button onClick="{{ it.pickB }}" style="{{ it.b }}">Fixed</button></div>
+            <sc-if value="{{ it.picked }}"><span role="status" style="{{ it.fbStyle }}">{{ it.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 6 GROUPING -->
+  <sc-if value="{{ s_grouping }}">
+    <div style="max-width:1000px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden">
+      <div style="padding:14px 22px;background:#1F3A5F;color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-weight:600;font-size:16px">Vignette · English, age 14 · Jayden</span><span style="font-size:13px;color:#D9E1EC">Social, emotional and mental health — anxiety</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))">
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#2F6FB3;font-weight:700;letter-spacing:.1em">NOTICE</span><p style="font-size:14.5px;text-wrap:pretty">Jayden has sat on the “support table” since September. He knows what the table means; so does everyone. He avoids the work before it is set, asks to leave, and a mistake in front of the group ends his lesson.</p></div>
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#1F7E7C;font-weight:700;letter-spacing:.1em">ADAPT</span><p style="font-size:14.5px;text-wrap:pretty">Ms Nakamura drops the fixed table. After Monday’s exit ticket she forms three temporary groups by the skill each pupil missed. Jayden joins the inference group for ten minutes on Tuesday, then re-joins the class. On Thursday he leads a vocabulary pair — it was the one thing he got right.</p></div>
+        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#4A5B75;font-weight:700;letter-spacing:.1em">KEEP</span><p style="font-size:14.5px;text-wrap:pretty">Same whole-class text, same essay question. Jayden stays in the room all week. Groups dissolve as the need dissolves.</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">What the evidence says</div>
+        <p style="font-size:16px;text-wrap:pretty">The EEF’s Teaching and Learning Toolkit finds that fixed setting and streaming carries little overall benefit and tends to disadvantage lower-attaining pupils, while temporary within-class grouping by current need shows a modest positive effect. Peer tutoring — pupils learning from one another in structured pairs — is among the more effective, low-cost approaches in the Toolkit.</p>
+        <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">The word that matters is <em>temporary</em>: a group formed for a difficulty with today’s content, dissolved when the difficulty is resolved.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Through both lenses</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px">
+          <div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teacher</span><span style="font-size:14px;color:#4A5B75">Group on current difficulty with the content, not on label or prior attainment. Rotate who tutors whom so every pupil is sometimes the expert.</span></div>
+          <div style="padding:12px 14px;border-radius:8px;background:#E3F1F0;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teaching assistant</span><span style="font-size:14px;color:#4A5B75">Work with several different pupils across the week. If the same three pupils are always yours, the group has become fixed.</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: what made Ms Nakamura’s grouping <em>flexible</em>?</div>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ grpOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ grpPicked }}"><p role="status" style="{{ grpFbStyle }}">{{ grpFeedback }}</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 7 TECH -->
+  <sc-if value="{{ s_tech }}">
+    <div style="max-width:1000px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden">
+      <div style="padding:14px 22px;background:#1F3A5F;color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-weight:600;font-size:16px">Vignette · History, age 11 · Sofia</span><span style="font-size:13px;color:#D9E1EC">Speech, language and literacy difficulties</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))">
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#2F6FB3;font-weight:700;letter-spacing:.1em">NOTICE</span><p style="font-size:14.5px;text-wrap:pretty">Sofia’s oral answers about the causes of the fire are the richest in the class. Her written explanation is three fragments. The gap between what she knows and what she can show is widening — and her grades follow the writing.</p></div>
+        <div style="padding:18px 22px;border-right:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#1F7E7C;font-weight:700;letter-spacing:.1em">ADAPT</span><p style="font-size:14.5px;text-wrap:pretty">Mrs Haddad puts a pupil’s draft paragraph under the visualiser and the class reworks it together — what makes an explanation, not just a description. Sofia then dictates her paragraph with speech-to-text on a tablet and edits the text against the class checklist. Her finished paragraph goes under the visualiser next.</p></div>
+        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#4A5B75;font-weight:700;letter-spacing:.1em">KEEP</span><p style="font-size:14.5px;text-wrap:pretty">Same question, same criteria, same word count. The technology removed the transcription barrier; the thinking was always Sofia’s.</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">What the evidence says</div>
+        <p style="font-size:16px;text-wrap:pretty">The EEF describes two uses: technology used <em>by the teacher</em> to model worked examples and share pupils’ work — a visualiser is the simplest — and technology used <em>by the pupil</em> to learn, practise and record learning, such as speech-to-text. Its guidance <em>Using Digital Technology to Improve Learning</em> is blunt that technology is only as effective as the teaching it supports; the pedagogy comes first.</p>
+        <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Ask of any tool: which barrier does this remove, and does the pupil still do the thinking?</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Through both lenses</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px">
+          <div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teacher</span><span style="font-size:14px;color:#4A5B75">Use a visualiser to model and to jointly rework an incorrect example. Make speech-to-text and audio recording ordinary options for recording learning.</span></div>
+          <div style="padding:12px 14px;border-radius:8px;background:#E3F1F0;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:14px">Teaching assistant</span><span style="font-size:14px;color:#4A5B75">Use technology inside interventions, and support pupils to set up and edit their own speech-to-text — the goal is that they run it without you.</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: what kind of use is this?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ techItems }}" as="it" hint-placeholder-count="3">
+          <div style="{{ it.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:16px;text-wrap:pretty">{{ it.text }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ it.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+            <sc-if value="{{ it.picked }}"><span role="status" style="{{ it.fbStyle }}">{{ it.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Putting the same worksheet on a screen changes the medium, not the barrier.</p>
+    </div>
+  </sc-if>
+
+  <!-- 8 AMBITION -->
+  <sc-if value="{{ s_ambition }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#8a2f22;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Differentiation that lowers the ceiling</div>
+        <p style="font-size:16px;text-wrap:pretty">Three worksheets — “must, should, could”. A simpler text for the support table. Fewer questions, a smaller target, an adult who does the hard part. Each is kindly meant. Each quietly decides in advance what the pupil will not learn.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Adaptation that keeps the ceiling</div>
+        <p style="font-size:16px;text-wrap:pretty">One ambitious task for all. The route in is adapted — chunked, modelled, scaffolded, grouped, recorded differently — and the adaptation is removed as soon as it can be. The pupil is expected to reach the same place; the teaching changes so they can.</p>
+      </div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">The EEF is direct: there is little evidence that giving pupils with SEND different, easier work improves outcomes. The Five-a-day are ways of teaching the same curriculum better — not ways of teaching a smaller one.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: adaptive, or lowered?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ ambItems }}" as="it" hint-placeholder-count="4">
+          <div style="{{ it.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:16px;text-wrap:pretty">{{ it.text }}</span>
+            <div style="display:flex;gap:6px"><button onClick="{{ it.pickA }}" style="{{ it.a }}">Adaptive</button><button onClick="{{ it.pickB }}" style="{{ it.b }}">Lowered</button></div>
+            <sc-if value="{{ it.picked }}"><span role="status" style="{{ it.fbStyle }}">{{ it.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 9 TEACHER + TA -->
+  <sc-if value="{{ s_pair }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">What the evidence says</div>
+        <p style="font-size:16px;text-wrap:pretty">A large UK study of TA deployment (Blatchford and colleagues, 2009) found that pupils who received the most TA support made <em>less</em> progress than similar pupils who received less — not because of the TAs, but because of how they were used: as a substitute for the teacher, with the pupils who most needed the teacher. The EEF’s <em>Making Best Use of Teaching Assistants</em> turns this round: TAs add value when they supplement teaching rather than replace it, and when they help pupils develop independence.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The TA scaffolding ladder</div>
+        <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Least help first. Step down only when the pupil is stuck; step back up as soon as they move.</p>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:14.5px">
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:baseline"><span style="font-weight:700;color:#1F7E7C">1</span><span><strong>Self-scaffolding</strong> — wait. Let the pupil try.</span></div>
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:baseline"><span style="font-weight:700;color:#1F7E7C">2</span><span><strong>Prompting</strong> — “What could you try first?”</span></div>
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:baseline"><span style="font-weight:700;color:#1F7E7C">3</span><span><strong>Clueing</strong> — a hint towards the strategy, not the answer.</span></div>
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:baseline"><span style="font-weight:700;color:#1F7E7C">4</span><span><strong>Modelling</strong> — show it, then hand it back.</span></div>
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:baseline"><span style="font-weight:700;color:#1F7E7C">5</span><span><strong>Correcting</strong> — the last resort, not the first.</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">The teacher plans the adaptation and owns the pupil’s progress. The TA delivers it moment by moment — and reports back what the pupil could do alone. Neither role is “the SEND person”.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: build the ladder, least help first</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ ladSlots }}" as="sl" hint-placeholder-count="5"><span style="{{ sl.style }}">{{ sl.label }}</span></sc-for></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ ladOpts }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.pick }}" disabled="{{ o.used }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ ladMiss }}"><p role="alert" style="font-size:14px;color:#8a2f22">Not that one — start again. Next comes <strong>{{ ladExpected }}</strong>.</p></sc-if>
+      <sc-if value="{{ ladDone }}"><p style="font-size:14px;color:#2f5a37;font-weight:600">Built. Most TA talk in the DISS study sat at steps 4 and 5. Most of it should sit at 1 and 2.</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 10 CYCLE -->
+  <sc-if value="{{ s_cycle }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#1F7E7C;font-weight:600">1</span><span style="font-weight:600;font-size:17px">Assess</span><span style="font-size:14px;color:#4A5B75">Name the barrier, not the label. What can the pupil already do?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#1F7E7C;font-weight:600">2</span><span style="font-weight:600;font-size:17px">Plan</span><span style="font-size:14px;color:#4A5B75">Choose the Five-a-day move and decide how it will fade.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#1F7E7C;font-weight:600">3</span><span style="font-weight:600;font-size:17px">Do</span><span style="font-size:14px;color:#4A5B75">Teach it, whole class first. TA delivers and observes.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#1F7E7C;font-weight:600">4</span><span style="font-weight:600;font-size:17px">Review</span><span style="font-size:14px;color:#4A5B75">What could the pupil do alone? Fade, keep, or change the move.</span></div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">The graduated approach is a cycle, not a form. It runs in a lesson, a week and a term — and it only works if “review” asks what the pupil did <em>without</em> the adaptation.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: which stage is this?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ cycItems }}" as="it" hint-placeholder-count="4">
+          <div style="{{ it.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:16px;text-wrap:pretty">{{ it.text }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ it.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+            <sc-if value="{{ it.picked }}"><span role="status" style="{{ it.fbStyle }}">{{ it.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 11 TASK: REFLECTION TOOL -->
+  <sc-if value="{{ s_task }}">
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;display:flex;flex-direction:column;gap:4px">
+      <span style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Your task · 10 protected minutes</span>
+      <span style="font-size:16px;text-wrap:pretty">Rate every question in your own column honestly — Never, Sometimes, Often or Always. Read the other column too: it is what your partner in the room is trying to do. Then choose the one strategy you will develop first.</span>
+    </div>
+    <div data-noprint="1" style="max-width:1000px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <span style="font-size:14px;font-weight:600">I am reflecting as</span>
+      <div style="display:flex;gap:6px"><sc-for list="{{ roleOpts }}" as="r" hint-placeholder-count="2"><button onClick="{{ r.pick }}" aria-pressed="{{ r.on }}" style="{{ r.style }}">{{ r.label }}</button></sc-for></div>
+      <span style="{{ reflStatusStyle }}">{{ reflStatus }}</span>
+    </div>
+    <div data-reflroot="1" style="max-width:1000px;display:flex;flex-direction:column;gap:14px">
+      <sc-for list="{{ reflStrats }}" as="st" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden">
+          <div style="padding:12px 20px;border-bottom:1px solid #D9E1EC;display:flex;align-items:center;gap:12px"><span style="width:28px;height:28px;border-radius:8px;background:#1F3A5F;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">{{ st.n }}</span><span style="font-weight:600;font-size:16px">{{ st.name }}</span><span style="margin-left:auto;font-size:12px;color:#4A5B75;white-space:nowrap">To what extent do I…</span></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
+            <div style="{{ st.tColStyle }}">
+              <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#1F3A5F">Teacher</span>
+              <sc-for list="{{ st.tq }}" as="q" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;text-wrap:pretty">{{ q.text }}</span><div style="display:flex;gap:4px;flex-wrap:wrap"><sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div></div>
+              </sc-for>
+            </div>
+            <div style="{{ st.aColStyle }}">
+              <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#1F7E7C">Teaching assistant</span>
+              <sc-for list="{{ st.aq }}" as="q" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;text-wrap:pretty">{{ q.text }}</span><div style="display:flex;gap:4px;flex-wrap:wrap"><sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div></div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="padding:12px 20px;border-top:1px solid #F2F4F8;display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;color:#4A5B75">Reflection · one honest line<textarea rows="2" value="{{ st.note }}" onChange="{{ st.onNote }}" placeholder="Where does this go well? Where does it slip?" style="margin-top:6px;width:100%;padding:10px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:14px;resize:vertical;color:#1F3A5F"></textarea></label></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="max-width:1000px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">The one I will develop first</div>
+      <p style="font-size:14px;color:#4A5B75">Pick the strategy where your ratings are lowest or your note is most uncomfortable.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ prioOpts }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <div data-noprint="1" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:6px">
+        <button onClick="{{ printSheet }}" style="min-height:44px;padding:10px 18px;border-radius:8px;border:1px solid #1F3A5F;background:transparent;color:#1F3A5F;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px" style-hover="background:#F2F4F8"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"></path><rect x="2" y="9" width="20" height="9" rx="2"></rect><path d="M6 14h12v7H6z"></path></svg>Print my reflection sheet</button>
+        <span style="font-size:13px;color:#4A5B75">{{ reflHint }}</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 12 QUIZ -->
+  <sc-if value="{{ s_quiz }}">
+    <div style="max-width:820px;display:flex;flex-direction:column;gap:14px">
+      <sc-for list="{{ quizItems }}" as="qz" hint-placeholder-count="8">
+        <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Question {{ qz.n }} of 8</span>
+          <h3 style="font-size:17px;text-wrap:pretty">{{ qz.q }}</h3>
+          <div role="radiogroup" aria-label="Answer options for question {{ qz.n }}" style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ qz.opts }}" as="o" hint-placeholder-count="4"><button role="radio" aria-checked="{{ o.on }}" onClick="{{ o.pick }}" disabled="{{ qz.revealed }}" style="{{ o.style }}"><span style="font-weight:600;width:22px;flex-shrink:0">{{ o.letter }}</span><span>{{ o.text }}</span></button></sc-for>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <sc-if value="{{ qz.notRevealed }}"><button onClick="{{ qz.reveal }}" disabled="{{ qz.noPick }}" style="padding:8px 16px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px" style-hover="background:#16304f">Reveal answer</button></sc-if>
+            <sc-if value="{{ qz.revealed }}"><div style="{{ qz.resultStyle }}"><strong>{{ qz.resultLabel }}</strong> {{ qz.why }}</div></sc-if>
+          </div>
+        </div>
+      </sc-for>
+      <sc-if value="{{ quizAllRevealed }}"><div role="status" style="background:#1F3A5F;color:#fff;border-radius:8px;padding:20px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline"><span style="font-size:32px;font-weight:700;line-height:1">{{ quizScore }}/8</span><span style="font-size:16px;font-weight:600;color:#fff">{{ quizVerdict }}</span></div>
+        <p style="font-size:14px;color:#D9E1EC;text-wrap:pretty">{{ quizAdvice }}</p>
+        <sc-if value="{{ quizWeak }}"><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ quizRevisit }}" as="rv" hint-placeholder-count="2"><button onClick="{{ rv.go }}" style="padding:8px 14px;border-radius:12px;border:1px solid #7FCBC6;background:transparent;color:#fff;font-weight:600;font-size:13px;line-height:1.35;white-space:normal;text-align:left;max-width:100%;min-height:44px" style-hover="background:rgba(31,126,124,.35)">Revisit: {{ rv.title }}</button></sc-for></div></sc-if>
+      </div></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 13 REFERENCES -->
+  <sc-if value="{{ s_refs }}">
+    <div style="max-width:900px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Core source</div>
+      <p style="font-size:16px;text-wrap:pretty">Education Endowment Foundation (2020). <em>Special Educational Needs in Mainstream Schools: Guidance Report.</em> London: EEF. Five recommendations; the ‘Five-a-day’ sits under recommendation 3, high-quality teaching. Reflection tools for teachers and teaching assistants accompany it. <a href="https://eef.li/SEND" target="_blank" rel="noopener">eef.li/SEND</a></p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600;font-size:16px">Explicit instruction</span><p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Rosenshine, B. (2012). Principles of Instruction: research-based strategies that all teachers should know. <em>American Educator</em>, 36(1), 12–19.</p></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600;font-size:16px">Cognitive &amp; metacognitive strategies</span><p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Sweller, J. (1988). Cognitive load during problem solving. <em>Cognitive Science</em>, 12(2), 257–285. · EEF (2018). <em>Metacognition and Self-regulated Learning: Guidance Report.</em></p></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600;font-size:16px">Scaffolding</span><p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Wood, D., Bruner, J. S. &amp; Ross, G. (1976). The role of tutoring in problem solving. <em>Journal of Child Psychology and Psychiatry</em>, 17(2), 89–100. · Vygotsky, L. S. (1978). <em>Mind in Society.</em> Harvard University Press.</p></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600;font-size:16px">Flexible grouping</span><p style="font-size:14px;color:#4A5B75;text-wrap:pretty">EEF. <em>Teaching and Learning Toolkit</em>: Setting and streaming; Within-class attainment grouping; Peer tutoring. <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">Toolkit</a></p></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600;font-size:16px">Using technology</span><p style="font-size:14px;color:#4A5B75;text-wrap:pretty">EEF (2019). <em>Using Digital Technology to Improve Learning: Guidance Report.</em></p></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600;font-size:16px">Teachers and teaching assistants</span><p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Blatchford, P. et al. (2009). <em>Deployment and Impact of Support Staff (DISS) project.</em> DCSF. · Sharples, J., Webster, R. &amp; Blatchford, P. (2015; updated 2021). <em>Making Best Use of Teaching Assistants: Guidance Report.</em> EEF.</p></div>
+    </div>
+    <div style="max-width:900px;background:#D9E1EC;border-radius:8px;padding:16px 22px;font-size:14px;color:#1F3A5F;text-wrap:pretty">Effect sizes and “months’ progress” figures are averages across many studies and settings; they indicate promise, not a guarantee for a given pupil. Verify against the current EEF publications before quoting them to colleagues.</div>
+  </sc-if>
+
+  <!-- 14 CAPSTONE -->
+  <sc-if value="{{ s_capstone }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#2F6FB3;font-weight:700;letter-spacing:.1em">NOTICE</span><span style="font-size:14px;color:#4A5B75">One pupil, one barrier — the actual moment, not the label.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#1F7E7C;font-weight:700;letter-spacing:.1em">ADAPT</span><span style="font-size:14px;color:#4A5B75">One Five-a-day move you will make this week, and how it will fade.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#4A5B75;font-weight:700;letter-spacing:.1em">KEEP</span><span style="font-size:14px;color:#4A5B75">The thing you will refuse to make smaller.</span></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">My commitment for the next two weeks</div>
+      <sc-if value="{{ hasOpeningNote }}"><div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;font-size:14px"><span style="color:#4A5B75">At the start you wrote:</span> “{{ openingNote }}” <span style="color:#4A5B75">— start there.</span></div></sc-if>
+      <sc-if value="{{ hasPrio }}"><div style="padding:12px 14px;border-radius:8px;background:#E3F1F0;font-size:14px"><span style="color:#4A5B75">Strategy you chose to develop first:</span> <strong>{{ prioName }}</strong></div></sc-if>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:16px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><span style="min-width:150px">I will notice</span><input type="text" value="{{ cNotice }}" onChange="{{ onCNotice }}" placeholder="the barrier, for whom, in which lesson" style="flex:1;min-width:200px;min-height:40px;padding:8px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;color:#1F3A5F"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><span style="min-width:150px">I will adapt by</span><input type="text" value="{{ cAdapt }}" onChange="{{ onCAdapt }}" placeholder="one Five-a-day move, and when it fades" style="flex:1;min-width:200px;min-height:40px;padding:8px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;color:#1F3A5F"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><span style="min-width:150px">I will keep</span><input type="text" value="{{ cKeep }}" onChange="{{ onCKeep }}" placeholder="the same task / text / standard as everyone else" style="flex:1;min-width:200px;min-height:40px;padding:8px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;color:#1F3A5F"></div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty"><strong>Then:</strong> share the commitment with your teacher or TA partner. The review question in two weeks is the only one that matters — what could the pupil do <em>without</em> the adaptation?</div>
+  </sc-if>
+
+  <!-- 15 CERTIFICATE -->
+  <sc-if value="{{ s_cert }}">
+    <sc-if value="{{ certLocked }}">
+      <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <h3 style="font-size:18px">To complete this micro-course</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px">
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req1Style }}">1</span><span>Work through all {{ lessonCount }} lessons</span><span style="color:#4A5B75">({{ completedCount }}/{{ lessonCount }})</span></li>
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req2Style }}">2</span><span>Complete the Five-a-day reflection tool</span><span style="color:#4A5B75">({{ reflStatus }})</span><button onClick="{{ goTask }}" style="padding:4px 12px;border-radius:999px;border:1px solid #1F7E7C;background:transparent;color:#176866;font-weight:600;font-size:12px;white-space:nowrap">Go to task</button></li>
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req3Style }}">3</span><span>Finish the knowledge check</span><span style="color:#4A5B75">({{ quizRevealedCount }}/8 revealed)</span><button onClick="{{ goQuiz }}" style="padding:4px 12px;border-radius:999px;border:1px solid #1F7E7C;background:transparent;color:#176866;font-weight:600;font-size:12px;white-space:nowrap">Go to knowledge check</button></li>
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req4Style }}">4</span><span>Write your Notice · Adapt · Keep commitment</span><button onClick="{{ goCapstone }}" style="padding:4px 12px;border-radius:999px;border:1px solid #1F7E7C;background:transparent;color:#176866;font-weight:600;font-size:12px;white-space:nowrap">Go to capstone</button></li>
+        </ul>
+        <p style="font-size:14px;color:#4A5B75">Your certificate appears here once every step is done.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ certReady }}">
+      <div data-noprint="1" style="max-width:900px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <button onClick="{{ printCert }}" style="min-height:44px;padding:10px 18px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px;white-space:nowrap" style-hover="background:#16304f">Print / save as PDF</button>
+        <button onClick="{{ downloadBadge }}" disabled="{{ badgeBusy }}" style="min-height:44px;padding:10px 18px;border-radius:8px;border:1px solid #1F3A5F;background:transparent;color:#1F3A5F;font-weight:600;font-size:14px;white-space:nowrap" style-hover="background:#fff">{{ badgeLabel }}</button>
+        <span style="font-size:13px;color:#4A5B75">Congratulations, {{ name }}. The badge is a PNG for email signatures, staff profiles or LinkedIn; the QR code and credential ID are what verify it.</span>
+      </div>
+      <div data-noprint="1" style="max-width:960px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 20px;display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Your commitment</span>
+        <p style="font-size:16px;font-style:italic;text-wrap:pretty">“I will notice {{ cNotice }}. I will adapt by {{ cAdapt }}. I will keep {{ cKeep }}.”</p>
+        <span style="font-size:13px;color:#4A5B75">Knowledge check: {{ quizScore }}/8 · Strategy to develop first: {{ prioName }}</span>
+      </div>
+      <div data-printroot="1" style="max-width:960px;background:#fff;position:relative;display:flex;flex-wrap:wrap;color:#323232;border:6px solid #163047">
+        <div data-frame="1" style="position:absolute;inset:6px;border:1px solid #1F7E7C;pointer-events:none"></div>
+        <aside style="flex:1 0 220px;max-width:100%;background:#163047;color:#F4F1EA;padding:clamp(28px,4vw,44px) 26px clamp(22px,3vw,32px);display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;min-width:0">
+          <span style="display:flex;width:clamp(140px,70%,200px);aspect-ratio:1">{{ badgeCertImg }}</span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:Montserrat,'IBM Plex Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase">SEND Digital Badge</span>
+            <span style="font-size:12.5px;color:#B9C6D2;line-height:1.5">Bloom Learning Labs · Micro-course</span>
+          </div>
+          <div style="width:40px;height:2px;background:#1F7E7C"></div>
+          <dl style="margin:0;display:grid;grid-template-columns:1fr;gap:12px;font-size:13px;text-align:center;width:100%">
+            <div style="display:flex;flex-direction:column;gap:2px"><dt style="color:#B9C6D2;letter-spacing:.12em;text-transform:uppercase;font-size:10px">Course code</dt><dd style="margin:0;font-weight:600;letter-spacing:.04em">BPLF-MC-SEND-05</dd></div>
+            <div style="display:flex;flex-direction:column;gap:2px"><dt style="color:#B9C6D2;letter-spacing:.12em;text-transform:uppercase;font-size:10px">Version</dt><dd style="margin:0;font-weight:600">1.0</dd></div>
+            <div style="display:flex;flex-direction:column;gap:2px"><dt style="color:#B9C6D2;letter-spacing:.12em;text-transform:uppercase;font-size:10px">Learning time</dt><dd style="margin:0;font-weight:600">30 min + 10 min task</dd></div>
+          </dl>
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px;align-items:center">
+            <div style="display:flex;gap:8px" aria-label="Pathway level 1 of 4: Micro-course"><span style="width:10px;height:10px;border-radius:50%;background:#1F7E7C"></span><span style="width:10px;height:10px;border-radius:50%;border:1.5px solid #B9C6D2"></span><span style="width:10px;height:10px;border-radius:50%;border:1.5px solid #B9C6D2"></span><span style="width:10px;height:10px;border-radius:50%;border:1.5px solid #B9C6D2"></span></div>
+            <span style="font-size:10.5px;color:#B9C6D2;letter-spacing:.08em;text-transform:uppercase">Micro · Foundation · Practitioner · Leadership</span>
+          </div>
+        </aside>
+        <div style="flex:1 1 420px;min-width:0;padding:clamp(28px,4vw,48px) clamp(22px,5vw,52px) clamp(22px,3vw,36px);display:flex;flex-direction:column;text-align:left;background:#fff">
+          <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#1F7E7C;font-weight:700">Professional Learning</span>
+          <h2 style="margin-top:14px;font-family:Montserrat,'IBM Plex Sans',sans-serif;font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.1;color:#163047">Certificate of Completion</h2>
+          <p style="margin-top:8px;font-size:13.5px;font-style:italic;color:#5B5B5B">This certificate records completion of the stated professional learning activity.</p>
+          <p style="margin-top:30px;color:#5B5B5B;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;font-weight:600">Presented to</p>
+          <div style="margin-top:6px;font-family:Montserrat,'IBM Plex Sans',sans-serif;font-size:clamp(28px,4.6vw,44px);line-height:1.08;font-weight:700;overflow-wrap:anywhere;color:#163047">{{ name }}</div>
+          <div style="margin-top:14px;width:56px;height:3px;background:#1F7E7C"></div>
+          <p style="margin-top:22px;color:#5B5B5B;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;font-weight:600">For completing the micro-course</p>
+          <h3 style="margin-top:6px;font-size:clamp(18px,2.4vw,24px);font-weight:600;line-height:1.25;color:#1F7E7C">Adaptive Teaching for SEND</h3>
+          <p style="margin-top:4px;font-size:14px;color:#5B5B5B;font-style:italic">Notice the Barrier. Adapt the Teaching. Keep the Ambition.</p>
+          <p style="margin-top:14px;font-size:14px;max-width:560px;text-wrap:pretty;color:#323232;line-height:1.6">Completed all lessons and checks, reflected on the EEF Five-a-day strategies as a {{ roleLabel }}, completed the knowledge check and recorded a Notice · Adapt · Keep commitment.</p>
+          <div style="margin-top:28px;padding-top:18px;border-top:1px solid #D8D2C4;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(140px,100%),1fr));gap:14px 22px;font-size:13.5px">
+            <div style="display:flex;flex-direction:column;gap:3px"><span style="color:#5B5B5B;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;font-weight:600">Completion date</span><span style="font-weight:600;color:#163047">{{ today }}</span></div>
+            <div style="display:flex;flex-direction:column;gap:3px"><span style="color:#5B5B5B;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;font-weight:600">Credential ID</span><span style="font-weight:600;letter-spacing:.04em;color:#163047">{{ credId }}</span></div>
+            <div style="display:flex;flex-direction:column;gap:3px"><span style="color:#5B5B5B;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;font-weight:600">Issued by</span><span style="font-weight:600;color:#163047">Bloom Learning Labs</span></div>
+          </div>
+          <div style="margin-top:26px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <div style="padding:5px;background:#fff;border:1px solid #D8D2C4;width:84px;height:84px;flex-shrink:0;display:flex;align-items:center;justify-content:center">{{ qrImg }}</div>
+            <div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 200px">
+              <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#1F7E7C;font-weight:700">{{ verifyCaption }}</span>
+              <a href="{{ verifyUrl }}" target="_blank" rel="noopener" style="font-size:12px;color:#323232;overflow-wrap:anywhere">{{ verifyUrl }}</a>
+              <span style="font-size:11px;color:#5B5B5B">{{ certNote }}</span>
+              <span style="font-size:11px;color:#5B5B5B">Queries: credentials@bloomlearninglabs.org</span>
+            </div>
+          </div>
+          <p style="margin-top:22px;font-size:10.5px;line-height:1.5;color:#5B5B5B;text-wrap:pretty">This credential records completion of the stated professional learning activity and does not confer specialist SEND, clinical, safeguarding, teaching-licensure or other regulated professional competence unless explicitly stated. Learning time is proposed and subject to validation.</p>
+        </div>
+      </div>
+      <div data-noprint="1" style="max-width:900px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px"><span style="font-weight:600;font-size:16px;flex:1;min-width:200px">One last thing — how was it?</span><button onClick="{{ goRate }}" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #1F7E7C;background:transparent;color:#176866;font-weight:600;font-size:14px;white-space:nowrap" style-hover="background:#F2F4F8">Rate this course</button></div>
+    </sc-if>
+  </sc-if>
+
+  <!-- RATE -->
+  <sc-if value="{{ s_rate }}">
+    <sc-if value="{{ rateSent }}">
+      <div role="status" style="max-width:820px;background:#fff;border:1px solid #2E8B57;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="color:#2f5a37;font-weight:600;font-size:18px">Thank you — course 100% complete.</div>
+        <p style="font-size:16px">You rated the course {{ rateStars }} out of 5. {{ rateSentNote }}</p>
+        <button onClick="{{ rateEdit }}" style="align-self:flex-start;padding:6px 12px;border-radius:999px;border:1px solid #B8C3D4;background:transparent;color:#1F3A5F;font-weight:600;font-size:12px">Edit my rating</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ rateOpen }}">
+      <form onSubmit="{{ rateSubmit }}" style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div id="rate-label" style="font-weight:600;font-size:17px">Overall, how would you rate this course?</div>
+          <div role="radiogroup" aria-labelledby="rate-label" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+            <sc-for list="{{ stars }}" as="st" hint-placeholder-count="5"><button type="button" role="radio" aria-checked="{{ st.on }}" aria-label="{{ st.label }}" onClick="{{ st.pick }}" style="{{ st.style }}"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></button></sc-for>
+            <span style="margin-left:8px;font-size:14px;color:#4A5B75;min-width:110px">{{ rateHint }}</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div id="rate-useful-label" style="font-weight:600;font-size:16px">Which part was most useful?</div>
+          <div role="radiogroup" aria-labelledby="rate-useful-label" style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ usefulOpts }}" as="u" hint-placeholder-count="5"><button type="button" role="radio" aria-checked="{{ u.on }}" onClick="{{ u.pick }}" style="{{ u.style }}">{{ u.label }}</button></sc-for>
+          </div>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px">What should we improve or build next?
+          <textarea value="{{ rateText }}" onChange="{{ onRateText }}" rows="4" placeholder="Optional — anything from the vignettes to the reflection tool to what was missing." style="padding:12px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-weight:400;font-size:16px;color:#1F3A5F;resize:vertical;line-height:1.5"></textarea>
+        </label>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <button type="submit" disabled="{{ rateDisabled }}" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px" style-hover="background:#16304f">Submit rating</button>
+          <span style="font-size:13px;color:#4A5B75">Your name is included so we can follow up; no other personal data is sent.</span>
+        </div>
+      </form>
+    </sc-if>
+  </sc-if>
+
+  <!-- Key takeaway + nav -->
+  <sc-if value="{{ isLesson }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:14px 20px;display:flex;flex-direction:column;gap:4px">
+    <div style="font-size:12px;color:#1F7E7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Key takeaway</div>
+    <p style="font-size:16px;text-wrap:pretty">{{ curTakeaway }}</p>
+  </div>
+  </sc-if>
+  <div data-noprint="1" style="max-width:820px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+    <sc-if value="{{ hasPrev }}"><button onClick="{{ prev }}" style="min-height:44px;padding:10px 16px;border-radius:8px;border:1px solid #B8C3D4;background:transparent;color:#1F3A5F;font-weight:600;font-size:14px" style-hover="background:#fff">Back</button></sc-if>
+    <div style="flex:1"></div>
+    <sc-if value="{{ curDone }}"><span style="font-size:13px;color:#2f5a37;font-weight:600">Completed</span></sc-if>
+    <sc-if value="{{ hasNext }}"><button onClick="{{ next }}" style="{{ nextStyle }}" style-hover="opacity:.92">{{ nextLabel }}</button></sc-if>
+  </div>
+  <sc-if value="{{ checkPending }}"><p data-noprint="1" aria-live="polite" style="max-width:820px;margin-top:-16px;font-size:13px;color:#4A5B75">{{ checkHint }}</p></sc-if>
+
+  <footer style="max-width:960px;margin-top:auto;padding-top:20px;border-top:1px solid #D9E1EC;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:13px;color:#4A5B75"><span>Adaptive Teaching for SEND · BPLF-MC-SEND-05 v1.0</span><span>© The Bloom Foundation, 2026. All Rights Reserved.</span></footer>
+  </main>
+</div>
+</sc-if>
+
+<sc-if value="{{ isLanding }}" hint-placeholder-val="{{ true }}">
+<footer style="max-width:1060px;width:100%;margin:0 auto;padding:0 clamp(14px,3vw,24px) 88px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:13px;color:#4A5B75;border-top:1px solid #D9E1EC;padding-top:18px"><span>Bloom Learning Labs · Lab 05</span><span>© The Bloom Foundation, 2026. All Rights Reserved.</span></footer>
+</sc-if>
+
+<!-- ASK POUI (see PouiChat.dc.html) -->
+<dc-import name="PouiChat" course-module="{{ pouiModule }}" course-week="{{ pouiWeek }}" hint-size="1px,1px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const KEY = 'bloom-lab-05-v1';
+const MODS = [
+  { title: 'Why adaptive teaching', mins: '4 min' }, { title: 'The Five-a-day', mins: '15 min' }, { title: 'Putting it together', mins: '6 min' }, { title: 'Apply & complete', mins: '5 min + task' }
+];
+const LESSONS = [
+  { id: 'welcome', mod: 1, mins: 2, title: 'Every teacher is a teacher of SEND', intro: 'High-quality teaching is the first response to special educational needs — not a separate worksheet, table or adult.', takeaway: 'The Five-a-day are the starting point for teaching all pupils, including those with SEND: used daily, flexibly, in response to the barrier in front of you.' },
+  { id: 'barrier', mod: 1, mins: 2, title: 'Notice the barrier, not the label', intro: 'A diagnosis tells you a category. The barrier tells you what to change tomorrow.', takeaway: 'Labels group pupils; barriers point at teaching moves. Plan from the barrier you can see.' },
+  { id: 'explicit', mod: 2, mins: 3, title: '1 · Explicit instruction', intro: 'Clear explanation, modelling and frequent checks, then guided practice before independence.', takeaway: 'Explain → model → check → guide → release. The check is what tells you who to guide.' },
+  { id: 'metacog', mod: 2, mins: 3, title: '2 · Cognitive and metacognitive strategies', intro: 'Protect working memory, and teach pupils to plan, monitor and evaluate their own learning.', takeaway: 'Cut unnecessary load; think aloud; give pupils a way to check themselves. Pupils with SEND benefit most from being taught how to learn.' },
+  { id: 'scaffold', mod: 2, mins: 3, title: '3 · Scaffolding', intro: 'Temporary support — visual, verbal or written — that reduces over the lesson, week or term.', takeaway: 'Plan the fade before you plan the frame. Offer scaffolds to the whole class so pupils opt in without stigma.' },
+  { id: 'grouping', mod: 2, mins: 3, title: '4 · Flexible grouping', intro: 'Temporary groups formed on current difficulty with the content, dissolved when the difficulty is.', takeaway: 'Group on today’s need, not on label or prior attainment. Fixed groups lower expectations; flexible ones move pupils on.' },
+  { id: 'tech', mod: 2, mins: 3, title: '5 · Using technology', intro: 'Teachers model with it; pupils learn, practise and record with it. The pedagogy comes first.', takeaway: 'Ask of any tool: which barrier does it remove, and does the pupil still do the thinking?' },
+  { id: 'ambition', mod: 3, mins: 2, title: 'Keep the ambition: adaptive teaching is not differentiation by ceiling', intro: 'Same curriculum, same goal, same standard. The route changes — not the destination.', takeaway: 'Easier, different work for pupils with SEND has little evidence behind it. Adapt the teaching, not the ambition.' },
+  { id: 'pair', mod: 3, mins: 2, title: 'Teacher and teaching assistant, together', intro: 'TAs add most when they supplement the teacher, not substitute for them — and when they build independence.', takeaway: 'Least help first: self-scaffolding, prompting, clueing, modelling, correcting. The teacher owns the plan; the TA reports what the pupil did alone.' },
+  { id: 'cycle', mod: 3, mins: 2, title: 'Assess, plan, do, review', intro: 'The graduated approach as a classroom cycle — in a lesson, a week and a term.', takeaway: 'Review asks one question: what could the pupil do without the adaptation?' },
+  { id: 'task', mod: 4, mins: 10, title: 'Your task: the Five-a-day reflection tool', intro: 'Ten protected minutes. The EEF’s reflection questions for teachers and for teaching assistants, side by side.', takeaway: 'Honest ratings beat high ones. The strategy you rate lowest is the one worth developing first.' },
+  { id: 'quiz', mod: 4, mins: 3, title: 'Knowledge check', intro: 'Eight questions. One attempt each — reveal to learn from the answer.', takeaway: 'Notice the barrier. Adapt the teaching. Keep the ambition.' },
+  { id: 'refs', mod: 4, mins: 1, title: 'The research behind this course', intro: 'Where each claim comes from, so you can check it and share it.', takeaway: 'The Five-a-day are well evidenced. Check the current EEF publications before quoting figures.' },
+  { id: 'capstone', mod: 4, mins: 1, title: 'Capstone: Notice · Adapt · Keep', intro: 'One pupil, one barrier, one move — and one thing you refuse to make smaller.', takeaway: 'Adaptation is judged by what the pupil can do without it.' },
+  { id: 'cert', mod: 4, mins: 1, title: 'Completion and next steps', intro: 'Your record of completing the micro-course, and what to do with your reflection sheet.', takeaway: 'Next: bring your printed reflection sheet to your teacher or TA partner and agree one shared adaptation for one class this fortnight.' }
+];
+const STRATS = [
+  { id: 'explicit', n: 1, name: 'Explicit instruction', tq: ['…use clear and succinct language in my teaching, checking pupils’ understanding frequently?', '…help pupils to organise their thinking by ‘chunking’ the content and introducing new material in small steps?', '…model how to complete a task before expecting pupils to work independently?'], aq: ['…use clear and succinct language when explaining things to pupils, checking their understanding frequently?', '…use dual coding (diagrams, images or tables on a mini-whiteboard) to aid pupils’ understanding of new content?', '…model how to complete a task before expecting pupils to work independently?'] },
+  { id: 'metacog', n: 2, name: 'Cognitive and metacognitive strategies', tq: ['…support all pupils to recall previously learned content before moving on to new content?', '…support pupils to plan, monitor and evaluate their own learning?', '…model the selection of metacognitive strategies, e.g. using checklists to monitor progress?'], aq: ['…support pupils to recall previously learned content before they move on to new content?', '…help pupils to organise their thinking by ‘chunking’ the content into smaller steps?', '…ask metacognitive questions that support pupils to plan, monitor and evaluate their own learning?'] },
+  { id: 'scaffold', n: 3, name: 'Scaffolding', tq: ['…provide scaffolds (visual, verbal and oral) that allow all pupils to access the learning?', '…use scaffolding in a way that reduces pupils’ reliance on adult support, reducing it over time?', '…provide scaffolds in a non-stigmatising way — at whole-class level, letting pupils opt in?'], aq: ['…use scaffolds (visual, verbal and written) that support pupils to access the learning?', '…use scaffolding in a way that reduces pupils’ reliance on adult support, lessening scaffolds over time?', '…provide scaffolds in a non-stigmatising way — for a small group or pair rather than one pupil?'] },
+  { id: 'grouping', n: 4, name: 'Flexible grouping', tq: ['…group pupils in a way that reduces stigma — on current difficulty with the content rather than fixed groups?', '…promote peer tutoring, placing pupils in groups where they learn from one another?'], aq: ['…work with several different pupils, forming temporary groups when several share the same current difficulty?', '…promote peer tutoring, facilitating pupils learning from one another?'] },
+  { id: 'tech', n: 5, name: 'Using technology', tq: ['…use technology such as a visualiser when modelling work for pupils?', '…use technology to help pupils record their learning, e.g. speech-to-text software?'], aq: ['…use technology as part of the delivery of interventions?', '…support pupils to use technology to record their learning, e.g. speech-to-text software?'] }
+];
+const SCALE = ['Never', 'Sometimes', 'Often', 'Always'];
+const LAB = [
+  { text: 'Ravi has a diagnosis of dyslexia.', c: 'A', why: 'A label — true, but it does not say what to change in tomorrow’s lesson.' },
+  { text: 'Ravi loses the thread when copying from the board and the explanation carries on.', c: 'B', why: 'A barrier — it points at chunking, a printed copy and checking before moving on.' },
+  { text: 'Mia is on the SEND register under SEMH.', c: 'A', why: 'A label. Two SEMH pupils can face opposite barriers in the same lesson.' },
+  { text: 'Mia stops working the moment she thinks she might get it wrong in front of others.', c: 'B', why: 'A barrier — it points at guided practice, whole-class scaffolds and low-stakes checks.' }
+];
+const SEQ = ['Explain', 'Model', 'Check understanding', 'Guided practice', 'Independent practice'];
+const SEQ_SHUF = ['Guided practice', 'Check understanding', 'Independent practice', 'Explain', 'Model'];
+const PME = [
+  { text: '“What do I already know that will help me here?”', c: 0 }, { text: '“Is this method working, or do I need to change it?”', c: 1 },
+  { text: '“What would I do differently next time?”', c: 2 }, { text: '“Which step will I take first, and how will I know I am right?”', c: 0 }
+];
+const PME_LABELS = ['Plan', 'Monitor', 'Evaluate'];
+const FADE = [
+  { text: 'A writing frame given to the whole class in week one, openers only in week two, a checklist in week three.', c: 'A', why: 'Fading — the support reduces on a plan as competence grows.' },
+  { text: 'A word bank stuck inside one pupil’s book in September, still there in July.', c: 'B', why: 'Fixed — and stigmatising. Nobody has asked whether it is still needed.' },
+  { text: 'A TA sits with the same pupil every lesson and writes the first sentence of each task for them.', c: 'B', why: 'Fixed — the adult has become the scaffold, and the pupil never practises the start.' },
+  { text: 'Sentence starters on the board for everyone; the teacher rubs off two each lesson as the class stops using them.', c: 'A', why: 'Fading, whole-class, opt-in — all three EEF conditions.' }
+];
+const GRP = [
+  { label: 'Groups were formed on the skill each pupil missed in Monday’s exit ticket, lasted only as long as the need, and Jayden’s role changed within the week.', ok: true, why: 'Temporary, need-based and mobile — the group dissolves as the difficulty does.' },
+  { label: 'Pupils chose their own groups so nobody felt singled out.', ok: false, why: 'Choice reduces stigma but does not target the difficulty; the grouping is not based on current need.' },
+  { label: 'She moved Jayden to a higher-attaining table so his expectations would rise.', ok: false, why: 'Still a fixed table by attainment — the label moved, the structure did not.' }
+];
+const TECHC = [
+  { text: 'The teacher puts a pupil’s draft under the visualiser and the class reworks it together.', c: 0 }, { text: 'Sofia dictates a paragraph with speech-to-text, then edits it against the class checklist.', c: 1 },
+  { text: 'The same worksheet is uploaded as a PDF and completed on tablets.', c: 2 }
+];
+const TECH_LABELS = ['Teacher modelling', 'Pupil recording', 'Substitution only'];
+const AMB = [
+  { text: 'The class reads the same novel; a small group pre-reads the chapter with the TA the day before.', c: 'A', why: 'Adaptive — same text, same discussion; the route in is prepared.' },
+  { text: 'Pupils with SEND are given an abridged text and asked comprehension questions on it.', c: 'B', why: 'Lowered — a different, smaller curriculum has been decided in advance.' },
+  { text: 'Everyone gets the same ten problems; three are worked as models first and pupils may start from problem four.', c: 'A', why: 'Adaptive — same problems, same standard, more modelling for those who need it.' },
+  { text: '“Must / should / could” tasks, with the support table told to complete the “must” only.', c: 'B', why: 'Lowered — the ceiling has been assigned by table before the lesson began.' }
+];
+const LAD = ['Self-scaffolding', 'Prompting', 'Clueing', 'Modelling', 'Correcting'];
+const LAD_SHUF = ['Modelling', 'Self-scaffolding', 'Correcting', 'Prompting', 'Clueing'];
+const CYC = [
+  { text: 'Watching what happens when the instructions run past two steps, and noting what the pupil can already do.', c: 0 },
+  { text: 'Deciding to chunk instructions into a numbered list, and to drop the list after two weeks.', c: 1 },
+  { text: 'Teaching with the numbered list; the TA notes which steps the pupil completes unaided.', c: 2 },
+  { text: 'Asking: what could the pupil do this week without the list? Keep, fade or change?', c: 3 }
+];
+const CYC_LABELS = ['Assess', 'Plan', 'Do', 'Review'];
+const QUIZ = [
+  { q: 'Where do the ‘Five-a-day’ come from, and who are they for?', opts: ['A specialist intervention menu for pupils with an EHC plan', 'The EEF’s SEND guidance — five well-evidenced approaches, used daily and flexibly as the starting point for teaching all pupils', 'A checklist for TAs delivering withdrawal groups', 'A grading framework for lesson observations'], ans: 1, why: 'They are high-quality teaching strategies for every pupil, including those with SEND — not a separate programme.', link: 'welcome' },
+  { q: 'Which is a barrier rather than a label?', opts: ['“Has a diagnosis of ADHD”', '“Is on the SEND register”', '“Cannot hold more than two instructions before starting the task”', '“Is a visual learner”'], ans: 2, why: 'It describes the moment learning breaks down — and points straight at chunking and checking.', link: 'barrier' },
+  { q: 'In explicit instruction, when should the check for understanding happen?', opts: ['Only at the end, as an exit ticket', 'After explaining and modelling, before guided practice — so you know who to guide', 'Once pupils have finished independent practice', 'Instead of modelling, to save time'], ans: 1, why: 'The check decides who needs guiding next. Explain → model → check → guide → release.', link: 'explicit' },
+  { q: 'Which change most directly reduces unnecessary cognitive load?', opts: ['Adding a colourful border and background image to the worksheet', 'Putting three problems per page with space to work, instead of twelve', 'Reading every instruction aloud twice', 'Giving pupils a choice of five tasks'], ans: 1, why: 'Fewer items, less clutter, no split attention — working memory is freed for the maths.', link: 'metacog' },
+  { q: 'What turns a scaffold into a ceiling?', opts: ['Offering it to the whole class', 'Making it visual rather than verbal', 'Never planning when and how it will be removed', 'Letting pupils opt in to it'], ans: 2, why: 'A scaffold that never fades stops being temporary support and becomes the limit of what is expected.', link: 'scaffold' },
+  { q: 'What makes grouping ‘flexible’ in the EEF’s sense?', opts: ['Pupils sit where they like', 'Groups are based on current difficulty with the content and are temporary', 'Groups are set by prior attainment at the start of the year', 'The TA always works with the same lower-attaining group'], ans: 1, why: 'Need-based and temporary. Fixed attainment groups tend to disadvantage lower-attaining pupils.', link: 'grouping' },
+  { q: 'Which is an adaptive use of technology rather than a substitution?', opts: ['Uploading the same worksheet as a PDF', 'A pupil with literacy difficulties dictating with speech-to-text, then editing against the class checklist', 'Projecting the textbook page instead of handing out copies', 'Playing a video instead of explaining'], ans: 1, why: 'The transcription barrier is removed and the pupil still does the thinking and the editing.', link: 'tech' },
+  { q: 'A pupil is stuck. What should a teaching assistant try first?', opts: ['Correct the error so the pupil can move on', 'Model the answer and hand it back', 'Wait, then prompt — “What could you try first?”', 'Do the hard part and let the pupil finish'], ans: 2, why: 'Least help first: self-scaffolding and prompting. Modelling and correcting are the last rungs, not the first.', link: 'pair' }
+];
+const OBJ = {
+  welcome: 'say in one sentence why high-quality teaching is the first response to SEND.', barrier: 'describe a pupil’s barrier in a way that points at a teaching move.', explicit: 'run explain → model → check → guide → release, and say why the check comes where it does.',
+  metacog: 'reduce unnecessary load and tell plan, monitor and evaluate prompts apart.', scaffold: 'recognise a scaffold that fades from one that has become a ceiling.', grouping: 'say what makes a group flexible rather than fixed.',
+  tech: 'distinguish teacher modelling and pupil recording from substitution.', ambition: 'tell adaptation that keeps ambition from differentiation that lowers it.', pair: 'order the TA scaffolding ladder, least help first.',
+  cycle: 'place classroom actions on the assess–plan–do–review cycle.', task: 'rate your own Five-a-day honestly and choose one to develop first.', quiz: 'check your recall of the ideas the course rests on.', refs: 'find the source behind each claim.', capstone: 'commit to one notice, one adaptation and one thing you will keep.'
+};
+const RECAP = {
+  2: 'High-quality teaching is the first response to SEND. Plan from the barrier you can see, not the label on the form.',
+  3: 'Five moves — explicit instruction, cognitive and metacognitive strategies, scaffolding, flexible grouping, technology — used daily, flexibly, for all, and faded as pupils grow.',
+  4: 'Adapt the route, never the destination; teacher plans, TA delivers least-help-first; review asks what the pupil did without the adaptation.'
+};
+const CHECK_HINT = { welcome: 'Write your opening reflection (one line) to mark this lesson complete.', task: 'Rate every question in your own column and pick the strategy you will develop first.', quiz: 'Answer and reveal all eight questions to mark this lesson complete.', capstone: 'Fill in all three parts of your commitment to mark this lesson complete.' };
+
+// ---- Ask POUI course metadata ----
+// Set POUI_WEEK to 1–4 when this course runs inside the four-week PTK practice cycle; leave null otherwise (sent as null).
+const POUI_WEEK = null;
+
+class Component extends DCLogic {
+  state = { screen: 'landing', name: '', nameDraft: '', openingNote: '', completed: {}, lab: {}, seq: [], seqMiss: false, pme: {}, fade: {}, grp: null, techc: {}, amb: {}, lad: [], ladMiss: false, cyc: {}, role: 'T', refl: {}, reflNotes: {}, prio: null, quiz: {}, cNotice: '', cAdapt: '', cKeep: '', credId: '', credDate: '', rating: { stars: 0, useful: '', text: '', sent: false, synced: false }, narrow: false, menuOpen: false };
+  initial() { const { narrow, menuOpen, ...rest } = new Component().state; return rest; }
+  async issueCredential() {
+    if (this._issuing || this.state.credId) return;
+    this._issuing = true;
+    const s = this.state; const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    let id = '';
+    try {
+      const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 6000);
+      const r = await fetch('/api/issue', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: s.name, date, course: 'BPLF-MC-SEND-05', commitment: 'I will notice ' + s.cNotice + '. I will adapt by ' + s.cAdapt + '. I will keep ' + s.cKeep + '.', quizScore: this.quizScore() }), signal: ctl.signal });
+      clearTimeout(t);
+      if (r.ok) { const j = await r.json(); if (j && j.id) id = j.id; }
+    } catch (e) {}
+    if (!id) { let n = 1; try { n = (parseInt(localStorage.getItem(KEY + '-seq'), 10) || 0) + 1; localStorage.setItem(KEY + '-seq', String(n)); } catch (e) {} id = 'BLL05-L' + String(n).padStart(4, '0'); }
+    this._issuing = false; this.setState({ credId: id, credDate: date });
+  }
+  quizScore() { return QUIZ.filter((q, i) => this.state.quiz[i] && this.state.quiz[i].revealed && this.state.quiz[i].pick === q.ans).length; }
+  printHtml(title, bodyHtml, extraCss) {
+    if (this._printing) return; this._printing = true;
+    const fonts = [...document.querySelectorAll('link[rel="stylesheet"]')].map(l => l.outerHTML).join('');
+    const html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + title + '</title>' + fonts + '<style>@page{size:A4 ' + (extraCss || '') + ';margin:12mm}html,body{margin:0;background:#fff;color:#1F3A5F;font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}*{box-sizing:border-box}h1,h2,h3,p,dl,dd{margin:0}a{color:inherit;text-decoration:none}</style></head><body></body></html>';
+    const f = document.createElement('iframe'); f.setAttribute('aria-hidden', 'true'); f.style.cssText = 'position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:0;border:0;pointer-events:none';
+    document.body.appendChild(f);
+    const cleanup = () => { this._printing = false; setTimeout(() => f.remove(), 500); };
+    const d = f.contentDocument; d.open(); d.write(html); d.close();
+    if (typeof bodyHtml === 'string') d.body.innerHTML = bodyHtml; else d.body.appendChild(d.importNode(bodyHtml, true));
+    const w = f.contentWindow; w.addEventListener('afterprint', cleanup);
+    const fire = () => { try { w.focus(); w.print(); } catch (e) {} setTimeout(cleanup, 60000); };
+    const ready = Promise.all([...d.images].map(i => i.complete ? null : new Promise(ok => { i.onload = i.onerror = ok; })).concat(d.fonts ? [d.fonts.ready] : []));
+    Promise.race([ready, new Promise(ok => setTimeout(ok, 2500))]).then(() => setTimeout(fire, 100));
+  }
+  printCert() {
+    const root = document.querySelector('[data-printroot]'); if (!root) return;
+    const clone = root.cloneNode(true); clone.querySelectorAll('[data-frame]').forEach(n => n.remove());
+    clone.style.cssText += ';width:1290px;max-width:none;margin:0;zoom:.8;flex-wrap:nowrap;break-inside:avoid';
+    const aside = clone.querySelector('aside'); if (aside) aside.style.flex = '0 0 260px';
+    this.printHtml('Certificate ' + (this.state.credId || ''), clone, 'landscape');
+  }
+  printSheet() {
+    const s = this.state; const esc = t => String(t || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+    const cell = (role, si, qi) => { const v = s.refl[role + si + '_' + qi]; return SCALE.map(l => '<span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:10.5px;border:1px solid ' + (v === l ? '#1F3A5F;background:#1F3A5F;color:#fff' : '#B8C3D4;color:#4A5B75') + ';margin-right:3px">' + l + '</span>').join(''); };
+    let h = '<div style="padding:4px 0 14px;border-bottom:2px solid #1F7E7C;display:flex;justify-content:space-between;align-items:flex-end;gap:12px"><div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1F7E7C;font-weight:700">Bloom Learning Labs · Lab 05 · Adaptive Teaching for SEND</div><h1 style="font-size:22px;margin-top:4px">Reflecting on my practice: the Five-a-day</h1><div style="font-size:12px;color:#4A5B75;margin-top:2px">' + esc(s.name) + ' · reflecting as ' + (s.role === 'A' ? 'a teaching assistant' : 'a teacher') + ' · ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '</div></div><div style="font-size:11px;color:#4A5B75;text-align:right">Questions adapted from the EEF Five-a-day reflection tools<br>eef.li/SEND</div></div>';
+    STRATS.forEach((st, si) => {
+      h += '<div style="margin-top:14px;break-inside:avoid;border:1px solid #D9E1EC;border-radius:8px;overflow:hidden"><div style="padding:8px 14px;background:#F2F4F8;font-weight:700;font-size:14px;display:flex;gap:10px;align-items:center"><span style="width:22px;height:22px;border-radius:6px;background:#1F3A5F;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px">' + st.n + '</span>' + st.name + '<span style="margin-left:auto;font-weight:400;font-size:11px;color:#4A5B75">To what extent do I…</span></div><div style="display:grid;grid-template-columns:1fr 1fr">';
+      [['T', 'Teacher', st.tq], ['A', 'Teaching assistant', st.aq]].forEach(([role, lab, qs], ci) => {
+        h += '<div style="padding:10px 14px;' + (ci ? 'background:#F7FBFB' : 'border-right:1px solid #D9E1EC') + '"><div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:' + (ci ? '#1F7E7C' : '#1F3A5F') + ';margin-bottom:6px">' + lab + '</div>';
+        qs.forEach((q, qi) => { h += '<div style="margin-bottom:8px"><div style="font-size:11.5px;line-height:1.4">' + esc(q) + '</div><div style="margin-top:3px">' + cell(role, si, qi) + '</div></div>'; });
+        h += '</div>';
+      });
+      h += '</div><div style="padding:8px 14px;border-top:1px solid #D9E1EC;font-size:11.5px"><span style="color:#4A5B75">Reflection: </span>' + (esc(s.reflNotes[si]) || '<span style="color:#B8C3D4">—</span>') + '</div></div>';
+    });
+    const pr = STRATS.find(x => x.id === s.prio);
+    h += '<div style="margin-top:14px;padding:12px 14px;border-radius:8px;background:#1F3A5F;color:#fff;font-size:13px;break-inside:avoid"><strong>The strategy I will develop first:</strong> ' + (pr ? pr.name : '—') + (s.cNotice ? '<div style="margin-top:6px;font-size:12px;color:#D9E1EC">I will notice ' + esc(s.cNotice) + '. I will adapt by ' + esc(s.cAdapt) + '. I will keep ' + esc(s.cKeep) + '.</div>' : '') + '</div>';
+    h += '<div style="margin-top:12px;font-size:10px;color:#4A5B75;display:flex;justify-content:space-between"><span>BPLF-MC-SEND-05 v1.0</span><span>© The Bloom Foundation, 2026. All Rights Reserved.</span></div>';
+    this.printHtml('Five-a-day reflection — ' + (s.name || ''), '<div style="width:100%">' + h + '</div>', 'portrait');
+  }
+  async buildBadge() {
+    try { await Promise.all(['800 150px Montserrat', '700 72px Montserrat', '500 34px Montserrat'].map(f => document.fonts.load(f))); } catch (e) {}
+    const S = 1080, cx = S / 2, cy = S / 2, c = document.createElement('canvas'); c.width = c.height = S; const x = c.getContext('2d');
+    const scallop = (R, a) => { x.beginPath(); for (let i = 0; i <= 720; i++) { const t = i * Math.PI / 360, r = R + a * Math.cos(12 * t); const px = cx + r * Math.cos(t), py = cy + r * Math.sin(t); i ? x.lineTo(px, py) : x.moveTo(px, py); } x.closePath(); };
+    x.save(); x.shadowColor = 'rgba(22,48,71,.32)'; x.shadowBlur = 38; x.shadowOffsetY = 16; scallop(438, 22);
+    const g = x.createLinearGradient(0, 90, 0, 990); g.addColorStop(0, '#2A8F8C'); g.addColorStop(1, '#163047'); x.fillStyle = g; x.fill(); x.restore();
+    scallop(438, 22); x.strokeStyle = 'rgba(255,255,255,.18)'; x.lineWidth = 3; x.stroke();
+    scallop(390, 20); x.fillStyle = '#F7F8FA'; x.fill();
+    x.beginPath(); x.arc(cx, cy, 360, 0, Math.PI * 2);
+    const rg = x.createRadialGradient(cx - 70, cy - 90, 30, cx, cy, 380); rg.addColorStop(0, '#F5F6F8'); rg.addColorStop(.5, '#CBD0D6'); rg.addColorStop(1, '#98A0A9'); x.fillStyle = rg; x.fill();
+    x.save(); x.clip(); let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    for (let r = 12; r < 362; r += 2.5) { x.beginPath(); x.arc(cx, cy, r, 0, Math.PI * 2); x.strokeStyle = 'rgba(255,255,255,' + (0.04 + 0.12 * rnd()).toFixed(3) + ')'; x.lineWidth = 1; x.stroke(); }
+    const sg = x.createLinearGradient(cx - 220, 0, cx + 220, 0); sg.addColorStop(0, 'rgba(255,255,255,0)'); sg.addColorStop(.42, 'rgba(255,255,255,.34)'); sg.addColorStop(.58, 'rgba(255,255,255,.34)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = sg; x.fillRect(0, 0, S, S); x.restore();
+    x.beginPath(); x.arc(cx, cy, 360, 0, Math.PI * 2); x.strokeStyle = 'rgba(22,48,71,.28)'; x.lineWidth = 3; x.stroke();
+    const bev = x.createLinearGradient(cx - 340, cy - 340, cx + 340, cy + 340); bev.addColorStop(0, 'rgba(255,255,255,.9)'); bev.addColorStop(.5, 'rgba(255,255,255,0)'); bev.addColorStop(1, 'rgba(60,70,80,.45)');
+    x.beginPath(); x.arc(cx, cy, 352, 0, Math.PI * 2); x.strokeStyle = bev; x.lineWidth = 8; x.stroke();
+    x.textAlign = 'center'; x.fillStyle = '#2B2B2B';
+    x.font = '700 74px Montserrat, Arial, sans-serif'; x.letterSpacing = '2px'; x.fillText('BLOOM', cx, cy - 122);
+    x.font = '500 33px Montserrat, Arial, sans-serif'; x.letterSpacing = '7px'; x.fillText('LEARNING LABS', cx, cy - 74);
+    x.fillStyle = '#1F7E7C'; x.font = '800 150px Montserrat, Arial, sans-serif'; x.letterSpacing = '6px'; x.fillText('SEND', cx, cy + 70);
+    x.font = '700 50px Montserrat, Arial, sans-serif'; x.letterSpacing = '3px'; x.fillText('ADAPTIVE TEACHING', cx, cy + 150);
+    this._badgePng = c.toDataURL('image/png'); this.forceUpdate();
+  }
+  badgeUri() {
+    if (this._badgePng) return this._badgePng;
+    if (this._badgeUri) return this._badgeUri;
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><circle cx="256" cy="256" r="250" fill="#163047"/><circle cx="256" cy="256" r="226" fill="none" stroke="#1F7E7C" stroke-width="8"/><circle cx="256" cy="228" r="164" fill="#F4F1EA"/><text x="256" y="250" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="72" fill="#1F7E7C">SEND</text><text x="256" y="440" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="28" letter-spacing="4" fill="#F4F1EA">MICRO-COURSE</text></svg>';
+    this._badgeUri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    return this._badgeUri;
+  }
+  async downloadBadge() {
+    if (this.state.badgeBusy) return;
+    this.setState({ badgeBusy: true });
+    try {
+      const s = this.state; const W = 1200, H = 1200;
+      const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
+      x.fillStyle = '#F4F1EA'; x.fillRect(0, 0, W, H); x.fillStyle = '#163047'; x.fillRect(0, 0, W, 20);
+      const badge = await new Promise((ok, err) => { const i = new Image(); i.onload = () => ok(i); i.onerror = err; i.src = this.badgeUri(); });
+      x.drawImage(badge, 300, 100, 600, 600);
+      x.textAlign = 'center'; x.fillStyle = '#1F7E7C'; x.font = '700 24px Montserrat, "IBM Plex Sans", system-ui, sans-serif'; x.fillText('AWARDED TO', W / 2, 780);
+      x.fillStyle = '#163047'; let fs = 64; x.font = '700 ' + fs + 'px Montserrat, "IBM Plex Sans", system-ui, sans-serif';
+      while (x.measureText(s.name).width > W - 160 && fs > 30) { fs -= 4; x.font = '700 ' + fs + 'px Montserrat, "IBM Plex Sans", system-ui, sans-serif'; }
+      x.fillText(s.name, W / 2, 855);
+      x.fillStyle = '#323232'; x.font = '500 30px "IBM Plex Sans", system-ui, sans-serif'; x.fillText('Adaptive Teaching for SEND', W / 2, 915);
+      x.font = '400 23px "IBM Plex Sans", system-ui, sans-serif'; x.fillText('BPLF-MC-SEND-05 · Bloom Learning Labs · Micro-course', W / 2, 960);
+      x.fillStyle = '#5B5B5B'; x.font = '400 22px "IBM Plex Sans", system-ui, sans-serif';
+      x.fillText((s.credDate || '') + ' · Credential ID ' + (s.credId || ''), W / 2, 1000);
+      x.fillText('Verify: ' + location.origin + '/verify?id=' + (s.credId || ''), W / 2, 1110);
+      x.fillStyle = '#1F7E7C'; x.fillRect(W / 2 - 40, 1040, 80, 4);
+      const blob = await new Promise(ok => c.toBlob(ok, 'image/png'));
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'Bloom-SEND-Badge-' + (s.credId || 'badge') + '.png'; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } catch (e) { alert('Could not build the badge image. Try again or take a screenshot of the badge on the certificate.'); }
+    this.setState({ badgeBusy: false });
+  }
+  async submitRating(e) {
+    if (e) e.preventDefault();
+    const r = this.state.rating; if (!r.stars) return;
+    let synced = false;
+    try { const body = new URLSearchParams({ 'form-name': 'course-rating', name: this.state.name, stars: String(r.stars), useful: r.useful, text: r.text, credId: this.state.credId, course: 'BPLF-MC-SEND-05 v1.0' }); const res = await fetch('/', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: body.toString() }); synced = res.ok; } catch (e) {}
+    this.setState(st => ({ rating: { ...st.rating, sent: true, synced } })); window.scrollTo(0, 0);
+  }
+  componentDidMount() {
+    try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && typeof s === 'object') this.setState(s); } catch (e) {}
+    this.buildBadge().catch(() => {});
+    this.onResize = () => { const n = window.innerWidth < 880; if (n !== this.state.narrow) this.setState({ narrow: n, menuOpen: false }); };
+    this.onResize(); window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  componentDidUpdate() { const { narrow, menuOpen, nameDraft, badgeBusy, ...rest } = this.state; try { localStorage.setItem(KEY, JSON.stringify(rest)); } catch (e) {} }
+  go(screen) { this.setState({ screen, menuOpen: false }); window.scrollTo(0, 0); }
+  markDone(id) { this.setState(s => ({ completed: { ...s.completed, [id]: true } })); }
+  patch(k, i, v) { this.setState(s => ({ [k]: { ...s[k], [i]: v } })); }
+  renderVals() {
+    const s = this.state; const has = v => v !== null && v !== undefined;
+    const idx = LESSONS.findIndex(l => l.id === s.screen);
+    const cur = idx >= 0 ? LESSONS[idx] : LESSONS[LESSONS.length - 1];
+    const completedCount = LESSONS.filter(l => s.completed[l.id]).length;
+    const rated = !!(s.rating && s.rating.sent);
+    const progressPct = Math.min(100, Math.round((completedCount + (rated ? 1 : 0)) / (LESSONS.length + 1) * 100));
+    const flags = {}; LESSONS.forEach(l => { flags['s_' + l.id] = s.screen === l.id; });
+    const pillBase = 'padding:6px 12px;border-radius:999px;border:1px solid;font-size:13px;font-weight:600;white-space:nowrap;flex-shrink:0;min-height:44px;';
+    const pill = st => pillBase + (st === 'on' ? 'background:#1F3A5F;border-color:#1F3A5F;color:#fff' : st === 'ok' ? 'background:rgba(46,139,87,.15);border-color:#2E8B57;color:#2f5a37' : st === 'bad' ? 'background:transparent;border-color:#B0493A;color:#8a2f22;text-decoration:line-through' : st === 'dim' ? 'background:transparent;border-color:#D9E1EC;color:#9AA7BA' : 'background:transparent;border-color:#B8C3D4;color:#1F3A5F');
+    const card = (picked, ok) => 'display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;background:#F2F4F8;border:1px solid ' + (!picked ? '#D9E1EC' : ok ? '#2E8B57' : '#B0493A');
+    const fb = ok => 'font-size:13px;flex-basis:100%;color:' + (ok ? '#2f5a37' : '#8a2f22');
+    const optBtn = (picked, isPick, isAns) => { let st = 'idle'; if (has(picked)) st = isAns ? 'ok' : isPick ? 'bad' : 'dim'; return pill(st); };
+    const mcq = (key, list) => { const picked = s[key]; const ans = list.findIndex(o => o.ok);
+      return { opts: list.map((o, i) => ({ label: o.label, pick: () => { if (!has(picked)) this.setState({ [key]: i }); }, style: 'text-align:left;width:100%;padding:10px 14px;border-radius:8px;font-size:15px;line-height:1.4;white-space:normal;min-width:0;' + optBtn(picked, picked === i, i === ans).replace(/border-radius:999px;/, '').replace(/font-size:13px;/, '').replace(/white-space:nowrap;/, '') })),
+        picked: has(picked), fbStyle: 'font-size:14px;font-weight:600;color:' + (picked === ans ? '#2f5a37' : '#8a2f22'),
+        feedback: picked === ans ? 'Correct — ' + list[ans].why : 'Not quite — ' + ((list[picked] && list[picked].why) || '') + ' The defensible option: ' + list[ans].label }; };
+    const classify = (key, items, labels, whyFn) => items.map((it, i) => { const picked = s[key][i]; const h = has(picked); const ok = h && picked === it.c;
+      return { text: it.text, picked: h, cardStyle: card(h, ok), fbStyle: fb(ok), feedback: h ? (ok ? 'Correct — ' : 'Not quite — this is ' + labels[it.c] + '. ') + (whyFn ? whyFn(it, i) : '') : '',
+        opts: labels.map((lab, oi) => ({ label: lab, pick: () => { if (!h) this.patch(key, i, oi); }, style: optBtn(h ? picked : null, picked === oi, oi === it.c) })) }; });
+    const binary = (key, items) => items.map((it, i) => { const picked = s[key][i]; const h = !!picked; const ok = h && picked === it.c; const st = k => optBtn(h ? picked : null, picked === k, k === it.c);
+      return { text: it.text, picked: h, cardStyle: card(h, ok), fbStyle: fb(ok), feedback: h ? (ok ? 'Correct — ' : 'Not quite — ') + it.why : '', a: st('A'), b: st('B'), pickA: () => { if (!h) this.patch(key, i, 'A'); }, pickB: () => { if (!h) this.patch(key, i, 'B'); } }; });
+    const order = (key, missKey, correct, shuf) => { const arr = s[key];
+      return { done: arr.length === correct.length, miss: s[missKey], expected: correct[arr.length] || correct[0],
+        opts: shuf.map(lab => { const used = arr.includes(lab); return { label: lab, used, style: pill(used ? 'dim' : 'idle') + ';min-height:40px', pick: () => this.setState(p => { const exp = correct[p[key].length]; return lab === exp ? { [key]: [...p[key], lab], [missKey]: false } : { [key]: [], [missKey]: true }; }) }; }),
+        slots: correct.map((L, i) => { const got = arr[i]; return { label: got || (i + 1), style: 'min-width:44px;min-height:40px;padding:0 12px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;' + (got ? 'background:#1F3A5F;color:#fff' : 'border:1.5px dashed #B8C3D4;color:#9AA7BA') }; }) }; };
+    const modules = MODS.map((m, mi) => ({ n: mi + 1, title: m.title, mins: m.mins,
+      lessons: LESSONS.filter(l => l.mod === mi + 1).map(l => { const active = s.screen === l.id, done = !!s.completed[l.id];
+        return { title: l.title, done, current: active ? 'page' : undefined, go: () => this.go(l.id),
+          style: 'display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 10px;min-height:44px;border:0;border-radius:8px;font-size:14px;line-height:1.35;' + (active ? 'background:#D9E1EC;color:#1F3A5F;font-weight:600' : 'background:transparent;color:#1F3A5F'),
+          dotStyle: 'width:18px;height:18px;border-radius:50%;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;' + (done ? 'background:#2E8B57;color:#fff' : active ? 'border:2px solid #1F7E7C' : 'border:1.5px solid #B8C3D4') }; }) }));
+    const seq = order('seq', 'seqMiss', SEQ, SEQ_SHUF); const lad = order('lad', 'ladMiss', LAD, LAD_SHUF);
+    const grp = mcq('grp', GRP);
+    // reflection tool
+    const role = s.role || 'T';
+    const reflStrats = STRATS.map((st, si) => { const mk = (r, qs) => qs.map((q, qi) => { const k = r + si + '_' + qi; const v = s.refl[k];
+        return { text: q, opts: SCALE.map(l => ({ label: l, on: v === l, pick: () => this.patch('refl', k, l), style: 'padding:6px 12px;border-radius:999px;border:1px solid;font-size:13px;font-weight:600;min-height:44px;' + (v === l ? (r === 'T' ? 'background:#1F3A5F;border-color:#1F3A5F;color:#fff' : 'background:#1F7E7C;border-color:#1F7E7C;color:#fff') : 'background:#fff;border-color:#B8C3D4;color:#1F3A5F') })) }; });
+      const col = (mine, tint) => 'padding:16px 20px;display:flex;flex-direction:column;gap:14px;' + (tint ? 'background:#F7FBFB;' : 'border-right:1px solid #F2F4F8;') + (mine ? '' : 'opacity:.72');
+      return { n: st.n, name: st.name, tq: mk('T', st.tq), aq: mk('A', st.aq), tColStyle: col(role === 'T', false), aColStyle: col(role === 'A', true), note: s.reflNotes[si] || '', onNote: e => this.patch('reflNotes', si, e.target.value) }; });
+    const roleTotal = STRATS.reduce((n, st) => n + (role === 'T' ? st.tq : st.aq).length, 0);
+    const roleRated = STRATS.reduce((n, st, si) => n + (role === 'T' ? st.tq : st.aq).filter((q, qi) => s.refl[role + si + '_' + qi]).length, 0);
+    const reflDone = roleRated === roleTotal && !!s.prio;
+    const roleOpts = [['T', 'Teacher'], ['A', 'Teaching assistant']].map(([k, l]) => ({ label: l, on: role === k, pick: () => this.setState({ role: k }), style: pill(role === k ? 'on' : 'idle') }));
+    const prioOpts = STRATS.map(st => ({ label: st.n + ' · ' + st.name, on: s.prio === st.id, pick: () => this.setState({ prio: st.id }), style: pill(s.prio === st.id ? 'on' : 'idle') + ';white-space:normal;text-align:left' }));
+    const prioName = (STRATS.find(x => x.id === s.prio) || {}).name || '—';
+    // quiz
+    let quizScore = 0, quizRevealedCount = 0;
+    const quizItems = QUIZ.map((q, i) => { const st = s.quiz[i] || {}; const picked = st.pick; const revealed = !!st.revealed; const ok = picked === q.ans;
+      if (revealed) { quizRevealedCount++; if (ok) quizScore++; }
+      return { n: i + 1, q: q.q, revealed, notRevealed: !revealed, noPick: picked === undefined, why: q.why, resultLabel: ok ? 'Correct.' : 'Not quite — the answer is ' + 'ABCD'[q.ans] + '.',
+        resultStyle: 'padding:10px 14px;border-radius:8px;font-size:14px;flex:1;' + (ok ? 'background:rgba(46,139,87,.15);color:#2f5a37' : 'background:#E3F1F0;color:#176866'),
+        reveal: () => this.patch('quiz', i, { ...st, revealed: true }),
+        opts: q.opts.map((t, oi) => { const on = picked === oi; let bg = '#fff', bd = '#B8C3D4', col = '#1F3A5F';
+          if (on && !revealed) { bg = '#D9E1EC'; bd = '#1F3A5F'; } if (revealed && oi === q.ans) { bg = 'rgba(46,139,87,.15)'; bd = '#2E8B57'; col = '#2f5a37'; } if (revealed && on && oi !== q.ans) { bd = '#B0493A'; col = '#8a2f22'; }
+          return { letter: 'ABCD'[oi], text: t, on, pick: () => { if (!revealed) this.patch('quiz', i, { ...st, pick: oi }); }, style: 'display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:10px 14px;border-radius:8px;border:1px solid ' + bd + ';background:' + bg + ';color:' + col + ';font-size:15px;line-height:1.4' }; }) }; });
+    const commitOk = [s.cNotice, s.cAdapt, s.cKeep].every(v => (v || '').trim().length > 1);
+    const req = ok => 'width:24px;height:24px;border-radius:50%;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;' + (ok ? 'background:#2E8B57;color:#fff' : 'border:1.5px solid #B8C3D4;color:#4A5B75');
+    const allLessons = LESSONS.filter(l => l.id !== 'cert').every(l => s.completed[l.id]);
+    const certReady = allLessons && reflDone && quizRevealedCount === 8 && commitOk;
+    if (certReady && !s.credId && s.screen === 'cert') setTimeout(() => this.issueCredential(), 0);
+    if (certReady && s.screen === 'cert' && !s.completed.cert) setTimeout(() => this.markDone('cert'), 0);
+    const local = !s.credId || /-L\d+$/.test(s.credId);
+    const verifyUrl = location.origin + '/verify?id=' + encodeURIComponent(s.credId || 'BLL05-PENDING');
+    const isRate = s.screen === 'rate'; const hasNext = idx >= 0 && idx < LESSONS.length - 1;
+    const badgeSrc = this.badgeUri();
+    const CHECKS = { welcome: () => (s.openingNote || '').trim().length >= 8, barrier: () => LAB.every((q, i) => s.lab[i]), explicit: () => s.seq.length === 5, metacog: () => PME.every((q, i) => has(s.pme[i])), scaffold: () => FADE.every((q, i) => s.fade[i]), grouping: () => has(s.grp), tech: () => TECHC.every((q, i) => has(s.techc[i])), ambition: () => AMB.every((q, i) => s.amb[i]), pair: () => s.lad.length === 5, cycle: () => CYC.every((q, i) => has(s.cyc[i])), task: () => reflDone, quiz: () => quizRevealedCount === 8, capstone: () => commitOk };
+    const checkDone = isRate ? true : (CHECKS[cur.id] ? CHECKS[cur.id]() : true);
+    const r = s.rating || { stars: 0, useful: '', text: '' };
+    const USEFUL = ['Notice the barrier', 'The five vignettes', 'Teacher and TA lenses', 'The scaffolding ladder', 'The reflection tool', 'The research'];
+    const stars = [1, 2, 3, 4, 5].map(n => ({ on: r.stars === n, label: n + ' star' + (n > 1 ? 's' : ''), pick: () => this.setState(st => ({ rating: { ...st.rating, stars: n } })), style: 'width:44px;height:44px;border:0;background:transparent;padding:0;display:inline-flex;align-items:center;justify-content:center;color:' + (n <= r.stars ? '#1F7E7C' : '#D9E1EC') }));
+    const usefulOpts = USEFUL.map(u => ({ label: u, on: r.useful === u, pick: () => this.setState(st => ({ rating: { ...st.rating, useful: u } })), style: pill(r.useful === u ? 'on' : 'idle') }));
+    const sidebarStyle = s.narrow ? 'position:fixed;top:0;bottom:0;left:0;width:min(300px,85vw);z-index:9;background:#fff;padding:16px 12px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;box-shadow:0 0 30px rgba(31,58,95,.2)' : 'width:270px;flex-shrink:0;position:sticky;top:64px;align-self:flex-start;max-height:calc(100vh - 64px);overflow-y:auto;padding:20px 12px;display:flex;flex-direction:column;gap:12px;border-right:1px solid #D9E1EC';
+    const inCourse = s.screen !== 'landing';
+    const pouiModule = inCourse ? 'Module ' + cur.mod + ' · ' + MODS[cur.mod - 1].title : null;
+    return {
+      pouiModule, pouiWeek: POUI_WEEK,
+      ...flags, isLanding: s.screen === 'landing', inCourse,
+      name: s.name, hasName: !!s.name, noName: !s.name, nameDraft: s.nameDraft,
+      onNameDraft: e => this.setState({ nameDraft: e.target.value }), onNameKey: e => { if (e.key === 'Enter' && s.nameDraft.trim()) { this.setState({ name: s.nameDraft.trim() }); this.go('welcome'); } },
+      startDisabled: !s.nameDraft.trim(), startCourse: () => { this.setState({ name: s.nameDraft.trim() }); this.go('welcome'); },
+      resume: () => { const nxt = LESSONS.find(l => !s.completed[l.id]); this.go(nxt ? nxt.id : 'cert'); }, resumeLabel: completedCount ? 'Continue the course' : 'Start the course',
+      resetAll: () => { if (confirm('Clear your name, notes and progress on this device?')) { try { localStorage.removeItem(KEY); } catch (e) {} this.setState(this.initial()); } },
+      completedCount, lessonCount: LESSONS.length, progressPct, progressBarStyle: 'height:100%;width:' + progressPct + '%;background:#1F7E7C;border-radius:999px',
+      narrow: s.narrow, showSidebar: !s.narrow || s.menuOpen, showScrim: s.narrow && s.menuOpen, toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }), menuOpen: !!s.menuOpen, sidebarStyle, goLanding: () => this.go('landing'),
+      modules, isLesson: !isRate, s_rate: isRate,
+      curKicker: isRate ? 'Feedback' : 'Module ' + cur.mod + ' · ' + MODS[cur.mod - 1].title, curMeta: isRate ? 'Two minutes' : 'Lesson ' + (idx + 1) + ' of ' + LESSONS.length + ' · ' + cur.mins + ' min',
+      curTitle: isRate ? 'Rate this course' : cur.title, curIntro: isRate ? 'Your rating and comments go to Bloom Learning Labs and shape the next Learning Lab.' : cur.intro, curTakeaway: cur.takeaway, curDone: !isRate && !!s.completed[cur.id],
+      hasPrev: isRate ? true : idx > 0, prev: () => this.go(isRate ? 'cert' : LESSONS[idx - 1].id), hasNext: hasNext && !isRate,
+      nextLabel: checkDone ? 'Complete & continue' : 'Skip for now',
+      nextStyle: 'min-height:44px;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;white-space:nowrap;' + (checkDone ? 'border:1px solid #1F3A5F;background:#1F3A5F;color:#fff' : 'border:1px solid #B8C3D4;background:transparent;color:#1F3A5F'),
+      checkPending: !checkDone && !isRate && hasNext, checkHint: CHECK_HINT[cur.id] || 'Finish the check on this page to mark the lesson complete.',
+      next: () => { if (checkDone) this.markDone(cur.id); if (hasNext) this.go(LESSONS[idx + 1].id); },
+      hasObjective: !isRate && !!OBJ[cur.id], curObjective: OBJ[cur.id] || '',
+      showRecap: !isRate && idx > 0 && LESSONS[idx - 1].mod !== cur.mod && !!RECAP[cur.mod], recapMod: cur.mod - 1, recapText: RECAP[cur.mod] || '',
+      badgeChipImg: React.createElement('img', { src: badgeSrc, alt: '', width: 22, height: 22, style: { display: 'block', width: 22, height: 22 } }),
+      badgeCertImg: React.createElement('img', { src: badgeSrc, alt: 'Bloom Learning Labs SEND Digital Badge', width: 96, height: 96, style: { display: 'block', width: '100%', height: 'auto', filter: 'drop-shadow(0 4px 10px rgba(31,58,95,.16))' } }),
+      openingNote: s.openingNote, onOpeningNote: e => this.setState({ openingNote: e.target.value }), hasOpeningNote: !!(s.openingNote || '').trim(),
+      labItems: binary('lab', LAB),
+      seqSlots: seq.slots, seqOpts: seq.opts, seqDone: seq.done, seqMiss: seq.miss, seqExpected: seq.expected,
+      pmeItems: classify('pme', PME, PME_LABELS, it => ['planning happens before the task begins.', 'monitoring happens during the task.', 'evaluating happens after the task.'][it.c]),
+      fadeItems: binary('fade', FADE),
+      grpOpts: grp.opts, grpPicked: grp.picked, grpFbStyle: grp.fbStyle, grpFeedback: grp.feedback,
+      techItems: classify('techc', TECHC, TECH_LABELS, it => ['the teacher uses the tool to make thinking visible.', 'the pupil uses the tool to record learning — and still does the thinking.', 'the medium changed; the barrier did not.'][it.c]),
+      ambItems: binary('amb', AMB),
+      ladSlots: lad.slots, ladOpts: lad.opts, ladDone: lad.done, ladMiss: lad.miss, ladExpected: lad.expected,
+      cycItems: classify('cyc', CYC, CYC_LABELS, it => ['assess names the barrier and what the pupil can already do.', 'plan chooses the move and its fade.', 'do teaches it and observes.', 'review asks what the pupil did without it.'][it.c]),
+      roleOpts, reflStrats, prioOpts, prioName, hasPrio: !!s.prio, roleLabel: role === 'A' ? 'teaching assistant' : 'teacher',
+      reflStatus: reflDone ? 'Reflection complete' : roleRated + ' of ' + roleTotal + ' rated' + (s.prio ? '' : ' · pick a priority'),
+      reflStatusStyle: 'font-size:13px;padding:4px 10px;border-radius:999px;font-weight:600;' + (reflDone ? 'background:rgba(46,139,87,.15);color:#2f5a37' : 'background:#D9E1EC;color:#1F3A5F'),
+      reflHint: reflDone ? 'Saved on this device. Print it and bring it to your teacher or TA partner.' : 'Saved as you rate. You can print at any point; the sheet shows both columns.',
+      printSheet: () => this.printSheet(),
+      quizItems, quizScore, quizRevealedCount, quizAllRevealed: quizRevealedCount === 8,
+      quizVerdict: quizScore >= 7 ? 'Secure' : quizScore >= 5 ? 'Secure, with ideas to revisit' : 'Worth revisiting before the capstone',
+      quizAdvice: quizScore >= 6 ? 'One attempt per question — the point is to learn from the answer. Carry the ideas into your commitment.' : 'No retakes: revisit the lessons behind the questions you missed, then write your commitment with them in mind.',
+      quizWeak: quizScore < 8, quizRevisit: QUIZ.map((q, i) => ({ q, ok: (s.quiz[i] || {}).pick === q.ans })).filter(x => !x.ok).map(x => x.q.link).filter((v, i, a) => a.indexOf(v) === i).map(id => ({ title: LESSONS.find(l => l.id === id).title, go: () => this.go(id) })),
+      cNotice: s.cNotice, cAdapt: s.cAdapt, cKeep: s.cKeep, onCNotice: e => this.setState({ cNotice: e.target.value }), onCAdapt: e => this.setState({ cAdapt: e.target.value }), onCKeep: e => this.setState({ cKeep: e.target.value }),
+      certLocked: !certReady, certReady, req1Style: req(allLessons), req2Style: req(reflDone), req3Style: req(quizRevealedCount === 8), req4Style: req(commitOk),
+      goTask: () => this.go('task'), goQuiz: () => this.go('quiz'), goCapstone: () => this.go('capstone'),
+      credId: s.credId || 'Issuing…', today: s.credDate || new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }), printCert: () => this.printCert(), downloadBadge: () => this.downloadBadge(), badgeBusy: !!s.badgeBusy, badgeLabel: s.badgeBusy ? 'Preparing badge…' : 'Download digital badge (PNG)',
+      qrImg: React.createElement('img', { src: 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&color=1F3A5F&bgcolor=ffffff&data=' + encodeURIComponent(verifyUrl), width: 70, height: 70, alt: 'QR code linking to the credential verification page', style: { display: 'block', width: 70, height: 70 } }),
+      verifyUrl, verifyCaption: local ? 'Local record — not registered online' : 'Verify this credential',
+      certNote: local ? 'Issued on a device without a connection to the issuing service. Records course completion only.' : 'Records course completion only; does not confer accredited or regulated professional competence.',
+      goRate: () => this.go('rate'), rateNavStyle: 'display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 10px;border:0;border-radius:8px;font-size:13.5px;' + (isRate ? 'background:#D9E1EC;color:#1F3A5F;font-weight:600' : 'background:transparent;color:#1F3A5F') + (rated ? ';color:#2f5a37' : ''),
+      rateNavLabel: rated ? 'Rated · thank you' : 'Rate this course',
+      rateSent: !!r.sent, rateOpen: !r.sent, rateStars: r.stars, rateSentNote: r.synced ? 'Your feedback has been recorded.' : 'Saved on this device; it will be recorded when the course is running online.', rateEdit: () => this.setState(st => ({ rating: { ...st.rating, sent: false } })),
+      rateSubmit: e => this.submitRating(e), rateDisabled: !r.stars, rateHint: ['', 'Poor', 'Fair', 'Good', 'Very good', 'Excellent'][r.stars] || 'Tap a star', stars, usefulOpts, rateText: r.text, onRateText: e => this.setState(st => ({ rating: { ...st.rating, text: e.target.value } }))
+    };
+  }
+}
+</script>
+</body>
+</html>
