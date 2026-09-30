@@ -9,3 +9,8 @@
   from = "/verify"
   to = "/verify.html"
   status = 200
+
+[[redirects]]
+  from = "/five-a-day"
+  to = "/five-a-day.html"
+  status = 200

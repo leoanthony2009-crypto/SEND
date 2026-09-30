@@ -56,3 +56,8 @@ Local: `npx netlify dev` with `.env` populated. Without a backend the widget sho
 - Function: POST only, JSON validation, role whitelist, week 1–4 or null, `previousResponseId` format check, one retry without a stale response id, generic error messages (no API errors, stack traces, env values or prompts returned).
 - Safeguarding: when POUI’s reply begins `## Immediate safety comes first`, the function flags `safeguarding: true` and the chat shows that reply in a calm, bordered card with a shield icon and heading. The interface never diagnoses or contacts external services.
 - Assistant replies are rendered by a Markdown-lite renderer (headings, bullets, numbered lists, bold). No model HTML is ever injected.
+
+## Staff 3-minute read
+- `five-a-day.html` is served at **`/five-a-day`** (redirect in `netlify.toml`). Share that link directly (WhatsApp, email, staff noticeboard).
+- The page has **Copy share link** and **Download PDF** buttons; Download PDF opens the print dialog → choose "Save as PDF", A4.
+- To also offer a static file: save the PDF once as `five-a-day.pdf` in the site root and link to `/five-a-day.pdf`.
